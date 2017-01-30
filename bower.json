@@ -1,21 +1,22 @@
 {
-  "name": "angular-bootstrap-seed",
-  "description": "A starter project for AngularJS with Twitter Bootstrap",
-  "version": "0.0.0",
+  "name": "RunCulator",
+  "description": "A simple set of calculators dedicated for runners.",
+  "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular": "~1.5.0",
+    "angular": "~1.5.10",
     "angular-route": "~1.5.0",
     "angular-loader": "~1.5.0",
     "angular-mocks": "~1.5.0",
-    "angular-animate": "^1.5.7",
-    "angular-touch": "^1.5.7",
     "angular-bootstrap": "^1.3.3",
     "bootstrap": "^3.3.6",
-    "angular-ui-router": "^0.3.2"
-  },
-  "resolutions": {
-    "angular": "1.6.0"
+    "angular-ui-router": "^0.3.2",
+    "angular-animate": "~1.5.0",
+    "angular-touch": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-translate": "^2.13.1",
+    "angular-translate-storage-local": "^2.13.1",
+    "angular-translate-loader-static-files": "^2.13.1"
   }
 }

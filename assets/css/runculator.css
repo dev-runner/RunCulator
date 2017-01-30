@@ -1,0 +1,189 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: none;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 16px;
+}
+.nav, .pagination, .carousel, .panel-title a {
+	cursor: pointer;
+}
+
+p {
+	line-height: 1.5;
+	font-size: 18px;
+}
+a {
+	cursor: pointer;
+}
+h1,h2,h3,h4{
+	font-weight: bold;
+}
+h1.title {
+	font-family: 'Lobster', cursive;
+    font-size: 6em;
+	padding: 9px 0;
+    text-align: center;
+	text-shadow: 2px 3px 5px rgba(0,0,0,0.23);
+	text-decoration: none;
+}
+h1.title a {
+	text-decoration: none;
+	color: #cc0000;
+}
+h1.title a:hover {
+	color: #de3535;
+}
+dt {
+	font-size: 20px;
+}
+dd {
+	font-size: 18px;
+}
+
+.top-buffer {
+	margin-top: 40px;
+}
+.bottom-buffer {
+	margin-bottom: 40px;
+}
+
+.container.white{
+	background-color: rgba(255,255,255,0.975);
+	border-radius: 3px;
+}
+
+.full {
+	background: url('../img/img_4_1920x1080.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.table>thead>tr>th {
+	font-size: 1.3em;
+}
+.table>tbody>tr.clickable:hover {
+	cursor: pointer;
+}
+
+form.calculator-form {
+	background-color: #f6f6f6;
+	padding: 20px 0;
+	margin-top: 20px;
+	border-bottom: 1px solid #d5d5d5;
+	border-radius: 3px;
+}
+form.calculator-form label {
+	font-size: 1.2em;
+}
+
+.row.content {
+	margin: 34px 0;
+}
+.row.langselect {
+	margin: 7px 0 3px;
+}
+
+.result {
+	font-weight: bold;
+	text-align: center;
+	padding: 4px 15px;
+	margin: 20px 0;
+	font-size: 2.9em;
+}
+.result mark {
+	color: #ffffff;
+	background-color: #3fa9da;
+}
+.result.bmi {
+	font-size: 3.8em;
+}
+
+.bmi-scale, .cal-rate {
+	padding: 3px 10px;
+	color: #ffffff;
+}
+.result.bmi mark.normal, .bg-success.bmi-scale{
+	background-color: #00cc00;
+}
+.result.bmi mark.below, .bg-info.bmi-scale{
+	background-color: #75cbf3;
+}
+.result.bmi mark.above, .bg-warning.bmi-scale{
+	background-color: #f5ec2a;
+}
+.result.bmi mark.obese, .bg-danger.bmi-scale{
+	background-color: #cc2121;
+}
+
+.bg-info.cal-rate {
+	background-color: #3fa9da;
+}
+
+
+nav {
+	margin: 17px 0;
+}
+.nav-justified {
+	border-radius: 3px;
+}
+.nav-justified > li > a {
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: center;
+	margin: 0 2px;
+	background-color: #f6f6f6;;
+	border-bottom: 1px solid #d5d5d5;
+	color: #777;
+}
+.nav-pills>li > a:hover {
+	background-color: #f7dfdf;
+}
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+	background-color: #cc0000;
+}
+
+/* switch view animation */
+#view.ng-enter {
+	transition: 1.2s;
+	transform: translate3d(0, 10px, 0);
+	opacity: 0;
+}
+#view.ng-enter-active {
+	opacity: 1.0;
+	transform: none;
+}
+
+
+.animate-show-hide.ng-hide {
+	opacity: 0;
+}
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+	transition: all linear 0.5s;
+}
+
+
+.animate-if.ng-enter /*, .animate-if.ng-leave*/ {
+	transition: all linear 0.5s;
+}
+.animate-if.ng-enter, .animate-if.ng-leave.ng-leave-active {
+	opacity:0;
+}
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active {
+	opacity:1;
+}
+
+.invisible {
+	transition: all linear .3s;
+	opacity: 0;
+}

@@ -1,0 +1,254 @@
+<div class="col-md-5">
+
+	<form name="VDOTForm" class="form-horizontal calculator-form" ng-submit="vdot.processForm()" novalidate>
+
+		<!-- DISTANCE (km) -->
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-1">
+				<label for="timeDistance">{{ 'VDOT.DISTANCE_LABEL' | translate }}</label>
+
+				<select name="distanceSelected" id="timeDistance" class="form-control"
+					ng-model="vdot.selectedDistance" ng-change="removeErrors()" required>
+					<option value="">{{ 'CONTROLS.CHOOSE' | translate }}</option>
+					<option value="1500m">1500 m</option>
+					<option value="3k">3 km</option>
+					<option value="5k">5 km</option>
+					<option value="10k">10 km</option>
+					<option value="15k">15 km</option>
+					<option value="HM">21,0975 km ({{ 'CONTROLS.HALF_MARATHON' | translate}})</option>
+					<option value="M">42,195 km ({{ 'CONTROLS.MARATHON' | translate }})</option>
+				</select>
+			</div>
+		</div>
+		
+		<!-- TIME (HH:MM:SS) -->
+		<div class="form-group">
+			<label class="col-sm-10 col-sm-offset-1" for="timeHours">{{ 'VDOT.TIME_LABEL' | translate }}</label>
+			
+			<div class="col-sm-3 col-sm-offset-1">
+				<input type="number" name="hours" min="0" max="99" class="form-control text-center"
+					placeholder="HH" ng-model="vdot.time.hours" id="timeHours" ng-change="removeErrors()">
+			</div>
+			<div class="col-sm-3">
+				<input type="number" name="minutes" min="0" max="59" class="form-control text-center"
+					placeholder="MM" ng-model="vdot.time.minutes" id="timeMinutes" ng-change="removeErrors()">
+			</div>
+			<div class="col-sm-3">
+				<input type="number" name="seconds" min="0" max="59" class="form-control text-center"
+					placeholder="SS" ng-model="vdot.time.seconds" id="timeSeconds" ng-change="removeErrors()">
+			</div>
+		</div>
+
+		<!-- SUBMIT -->
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-1">
+				<button type="submit" class="btn btn-danger btn-lg btn-block">{{ 'VDOT.SUBMIT' | translate | uppercase }}</button>
+			</div>	
+		</div>
+
+		<!-- ERRORS -->
+		<div class="form-group" ng-show="VDOTForm.$submitted && errors">
+			<div class="col-sm-9 col-sm-offset-1">
+				<div uib-alert ng-repeat="error in errors" class="alert alert-danger" close="closeError($index)">{{ error.msg }}</div>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="col-md-7">
+
+	<!-- VDOT info -->
+	<article ng-if="!vdot.result" class="animate-if">
+		<header>
+			<h2 class="text-uppercase">{{ 'VDOT.TITLE' | translate}}</h2>
+		</header>
+		<section ng-bind-html="'VDOT.LEAD' | translate | htmlSafe"></section>
+		<section ng-bind-html="'VDOT.ABOUT' | translate | htmlSafe"></section>
+	</article>
+
+	<!-- VDOT result -->
+	<article ng-if="vdot.result" class="animate-if">
+
+		<section ng-class="{invisible: !vdot.calculated}">
+		
+		<!-- VDOT value -->
+		<header>
+			<h2 class="text-center text-uppercase">{{ 'VDOT.RESULT' | translate }}</h2>
+		</header>
+		<p class="result vdot"><mark>{{ vdot.result.vdot_value }}</mark></p>
+
+		<uib-tabset active="0" type="tabs" justified="true" class="top-buffer">
+			
+			<!-- racing paces -->
+			<uib-tab index="0" heading="{{ 'VDOT.RACING.TAB' | translate }}">
+				
+				<p class="top-buffer">{{ 'VDOT.RACING.DESCRIPTION' | translate }}</p>
+
+				<table class="table table-striped table-hover top-buffer">
+					<thead>
+						<tr>
+							<th>{{ 'VDOT.RACING.TABLE.DISTANCE' | translate }}</th>
+							<th>{{ 'VDOT.RACING.TABLE.TIME' | translate }}</th>
+							<th>{{ 'VDOT.RACING.TABLE.PACE' | translate }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><strong>1500 m</strong></td>
+							<td>{{ vdot.result.race_times['1500m'] | timeFormat }}</td>
+							<td>{{ vdot.getPace(1.5, vdot.result.race_times['1500m']) | paceFormat }}</td>
+						</tr>
+						<tr>
+							<td><strong>3 km</strong></td>
+							<td>{{ vdot.result.race_times['3k'] | timeFormat }}</td>
+							<td>{{ vdot.getPace(3, vdot.result.race_times['3k']) | paceFormat }}</td>
+						</tr>
+						<tr>
+							<td><strong>5 km</strong></td>
+							<td>{{ vdot.result.race_times['5k'] | timeFormat }}</td>
+							<td>{{ vdot.getPace(5, vdot.result.race_times['5k']) | paceFormat }}</td>
+						</tr>
+						<tr>
+							<td><strong>10 km</strong></td>
+							<td>{{ vdot.result.race_times['10k'] | timeFormat }}</td>
+							<td>{{ vdot.getPace(10, vdot.result.race_times['10k']) | paceFormat }}</td>
+						</tr>
+						<tr>
+							<td><strong>15 km</strong></td>
+							<td>{{ vdot.result.race_times['15k'] | timeFormat }}</td>
+							<td>{{ vdot.getPace(15, vdot.result.race_times['15k']) | paceFormat }}</td>
+						</tr>
+						<tr>
+							<td><strong>{{ 'VDOT.RACING.TABLE.HALF_MARATHON' | translate }}</strong></td>
+							<td>{{ vdot.result.race_times['HM'] | timeFormat }}</td>
+							<td>{{ vdot.getPace(21.0975, vdot.result.race_times['HM']) | paceFormat }}</td>
+						</tr>
+						<tr>
+							<td><strong>{{ 'VDOT.RACING.TABLE.MARATHON' | translate }}</strong></td>
+							<td>{{ vdot.result.race_times['M'] | timeFormat }}</td>
+							<td>{{ vdot.getPace(42.195, vdot.result.race_times['M']) | paceFormat }}</td>
+						</tr>
+					</tbody>
+				</table>
+	
+			</uib-tab>
+			
+			<!-- training paces -->
+			<uib-tab index="1" heading="{{ 'VDOT.TRAINING.TAB' | translate }}">
+				
+				<p class="top-buffer">{{ 'VDOT.TRAINING.DESCRIPTION' | translate }}</p>
+
+				<table class="table table-striped table-hover top-buffer">
+					<thead>
+						<tr>
+							<th class="col-sm-8">{{ 'VDOT.TRAINING.TABLE.TRAINING_ZONE' | translate }}</th>
+							<th class="col-sm-4">{{ 'VDOT.TRAINING.TABLE.PACE' | translate }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-click="vdot.collapsed.easy = !vdot.collapsed.easy" class="clickable">
+							<td>
+								<h4 class="text-uppercase">Easy pace
+									<span class="glyphicon glyphicon-menu-down" ng-if="vdot.collapsed.easy"></span>
+									<span class="glyphicon glyphicon-menu-up" ng-if="!vdot.collapsed.easy"></span>
+								</h4>
+								<p uib-collapse="vdot.collapsed.easy">{{ 'VDOT.TRAINING.TABLE.EASY_PACE' | translate }}</p>
+							</td>
+							<td><p class="lead text-center">{{ vdot.result.training_paces['easy'] | convertPace:true }}</p></td>
+						</tr>
+						<tr ng-click="vdot.collapsed.marathon = !vdot.collapsed.marathon" class="clickable">
+							<td>
+								<h4 class="text-uppercase">Marathon pace
+									<span class="glyphicon glyphicon-menu-down" ng-if="vdot.collapsed.marathon"></span>
+									<span class="glyphicon glyphicon-menu-up" ng-if="!vdot.collapsed.marathon"></span>
+								</h4>
+								<p uib-collapse="vdot.collapsed.marathon">{{ 'VDOT.TRAINING.TABLE.MARATHON_PACE' | translate }}</p>
+							</td>
+							<td><p class="lead text-center">{{ vdot.result.training_paces['marathon'] | convertPace:true }}</p></td>
+						</tr>
+						<tr ng-click="vdot.collapsed.threshold = !vdot.collapsed.threshold" class="clickable">
+							<td>
+								<h4 class="text-uppercase">Threshold pace
+									<span class="glyphicon glyphicon-menu-down" ng-if="vdot.collapsed.threshold"></span>
+									<span class="glyphicon glyphicon-menu-up" ng-if="!vdot.collapsed.threshold"></span>
+								</h4>
+								<p uib-collapse="vdot.collapsed.threshold">{{ 'VDOT.TRAINING.TABLE.THRESHOLD_PACE' | translate }}</p>
+							</td>
+							<td>
+								<table class="table">
+									<tr>
+										<td><strong>400 m</strong></td>
+										<td>{{ vdot.result.training_paces['threshold_400'] | convertPace }}</td>
+									</tr>
+									<tr>
+										<td><strong>800 m</strong></td>
+										<td>{{ vdot.result.training_paces['threshold_800'] | convertPace }}</td>
+									</tr>
+									<tr>
+										<td><strong>1000 m</strong></td>
+										<td>{{ vdot.result.training_paces['threshold_1000'] | convertPace }}</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr ng-click="vdot.collapsed.intervals = !vdot.collapsed.intervals" class="clickable">
+							<td>
+								<h4 class="text-uppercase">Intervals
+									<span class="glyphicon glyphicon-menu-down" ng-if="vdot.collapsed.intervals"></span>
+									<span class="glyphicon glyphicon-menu-up" ng-if="!vdot.collapsed.intervals"></span>
+								</h4>
+								<p uib-collapse="vdot.collapsed.intervals">{{ 'VDOT.TRAINING.TABLE.INTERVALS' | translate }}</p>
+							</td>
+							<td>
+								<table class="table">
+									<tr>
+										<td><strong>400 m</strong></td>
+										<td>{{ vdot.result.training_paces['interval_400'] | convertPace }}</td>
+									</tr>
+									<tr>
+										<td><strong>1000 m</strong></td>
+										<td>{{ vdot.result.training_paces['interval_1000'] | convertPace }}</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr ng-click="vdot.collapsed.repetitions = !vdot.collapsed.repetitions" class="clickable">
+							<td>
+								<h4 class="text-uppercase">Repetitions
+									<span class="glyphicon glyphicon-menu-down" ng-if="vdot.collapsed.repetitions"></span>
+									<span class="glyphicon glyphicon-menu-up" ng-if="!vdot.collapsed.repetitions"></span>
+								</h4>
+								<p uib-collapse="vdot.collapsed.repetitions">{{ 'VDOT.TRAINING.TABLE.REPETITIONS' | translate }}</p>
+							</td>
+							<td>
+								<table class="table">
+									<tr>
+										<td><strong>200 m</strong></td>
+										<td>{{ vdot.result.training_paces['reps_200'] | convertPace }}</td>
+									</tr>
+									<tr>
+										<td><strong>400 m</strong></td>
+										<td>{{ vdot.result.training_paces['reps_400'] | convertPace }}</td>
+									</tr>
+									<tr>
+										<td><strong>800 m</strong></td>
+										<td>{{ vdot.result.training_paces['reps_800'] | convertPace }}</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+
+			</uib-tab>
+		</uib-tabset>
+
+		</section>
+		
+		<hr />
+		<a ng-click="goBack(vdot)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
+
+	</article>
+
+</div>

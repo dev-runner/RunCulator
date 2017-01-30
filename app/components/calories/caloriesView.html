@@ -1,0 +1,90 @@
+<div class="col-md-5">
+
+	<form name="CaloriesForm" class="form-horizontal calculator-form" ng-submit="cal.processForm()" novalidate>
+
+		<!-- DISTANCE (km) -->
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-1">
+				<label for="calDistance">{{ 'CAL.DISTANCE_LABEL' | translate }}</label>
+				<div class="input-group">
+					<input type="number" name="distance" min="1" step="1" class="form-control text-center"
+						placeholder="{{'CAL.DISTANCE' | translate}}" ng-model="cal.distance" id="calDistance"
+						ng-change="removeErrors()" required>
+					<div class="input-group-addon">km</div>
+				</div>
+
+			</div>
+		</div>
+		
+		<!-- WEIGHT (kg) -->
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-1">
+				<label for="calWeight">{{ 'CAL.WEIGHT_LABEL' | translate }}</label>
+				<div class="input-group">
+					<input type="number" name="weight" min="1" step="1" class="form-control text-center"
+						placeholder="{{'CAL.WEIGHT' | translate}}" ng-model="cal.weight" id="calWeight"
+						ng-change="removeErrors()" required="">
+					<div class="input-group-addon">kg</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- TIME (HH:MM:SS) -->
+		<div class="form-group">
+			<label class="col-sm-10 col-sm-offset-1" for="calHours">{{ 'CAL.TIME_LABEL' | translate }}</label>
+			
+			<div class="col-sm-3 col-sm-offset-1">
+				<input type="number" name="hours" min="0" max="99" class="form-control text-center"
+					placeholder="HH" ng-model="cal.time.hours" id="calHours" ng-change="removeErrors()">
+			</div>
+			<div class="col-sm-3">
+				<input type="number" name="minutes" min="0" max="59" class="form-control text-center"
+					placeholder="MM" ng-model="cal.time.minutes" id="calMinutes" ng-change="removeErrors()">
+			</div>
+			<div class="col-sm-3">
+				<input type="number" name="seconds" min="0" max="59" class="form-control text-center"
+					placeholder="SS" ng-model="cal.time.seconds" id="calSeconds" ng-change="removeErrors()">
+			</div>
+		</div>
+
+		<!-- SUBMIT -->
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-1">
+				<button type="submit" class="btn btn-danger btn-lg btn-block">{{ 'CAL.SUBMIT' | translate | uppercase }}</button>
+			</div>
+		</div>
+
+		<!-- ERRORS -->
+		<div class="form-group" ng-show="CaloriesForm.$submitted && errors">
+			<div class="col-sm-9 col-sm-offset-1">
+				<div uib-alert ng-repeat="error in errors" class="alert alert-danger" close="closeError($index)">{{ error.msg }}</div>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="col-md-7">
+
+	<!-- calories info -->
+	<article ng-if="!cal.result" class="animate-if">
+		<header>
+			<h2 class="text-uppercase">{{'CAL.TITLE' | translate}}</h2>
+		</header>
+		<section ng-bind-html="'CAL.LEAD' | translate | htmlSafe"></section>
+		<section ng-bind-html="'CAL.ABOUT' | translate | htmlSafe"></section>
+	</article>
+
+	<!-- calories result -->
+	<article ng-if="cal.result" class="animate-if">
+		<section ng-class="{invisible: !cal.calculated}">
+			<header>
+				<h2 class="text-center text-uppercase">{{ 'CAL.RESULT' | translate }}</h2>
+			</header>
+			<p class="result cal"><mark>{{ cal.result.total_calories_burned }} kcal</mark></p>
+			<section ng-bind-html="'CAL.DESCRIPTION' | translate:cal.result | htmlSafe"></section>
+		</section>
+		<hr />
+		<a ng-click="goBack(cal)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
+	</article>
+
+</div>

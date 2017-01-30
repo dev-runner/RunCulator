@@ -1,0 +1,114 @@
+{  
+   "GENERAL": {
+      "HTML_LANG": "pl_PL",
+      "DESCRIPTION": "Kalkulatory dla biegaczy",
+      "FORM_ERROR": "Wypełnij wszystkie pola formularza."
+   },
+   "CONTROLS": {
+      "CHOOSE": "Wybierz...",
+      "HALF_MARATHON": "Półmaraton",
+      "MARATHON": "Maraton"
+   },
+   "NAV": {
+      "BMI":"Kalkulator BMI",
+      "PACE":"Kalkulator tempa",
+      "CALORIES":"Kalkulator kalorii",
+      "LAPS": "Czas odcinka",
+      "TIME":"Tempo treningowe/startowe",
+      "ABOUT":"O nas",
+      "CHOOSE_LANGUAGE": "Zmień język",
+      "GO_BACK": "Powrót"
+   },
+   "HOME": {
+      "LEAD":"<p class=\"lead\">Witaj, <strong>RunCulator</strong> to prosta aplikacja zawierająca zestaw najbardziej przydatnych kalkulatorów przeznaczonych dla biegaczy.</p>"
+   },
+   "BMI": {
+      "CALCULATOR_NAME":"Kalkulator BMI",
+      "HEIGHT_LABEL":"Podaj wzrost (w centymetrach):",
+      "HEIGHT":"Wzrost [cm]",
+      "WEIGHT":"Waga [kg]",
+      "WEIGHT_LABEL":"Podaj wagę (w kilogramach):",
+      "SUBMIT":"Oblicz BMI",
+      "RESULT":"Twój wskaźnik BMI wynosi",
+      "TITLE":"Oblicz swoje BMI",
+      "LEAD":"<p>Dzięki temu kalkulatorowi wyznaczysz swoje BMI, czyli Wskaźnik Masy Ciała <i>(ang. Body Mass Index)</i>, oraz uzyskasz dodatkowe wskazówki dotyczące biegania.</p>",
+      "ABOUT":"<hr /><h2 class=\"text-uppercase\"><span class=\"glyphicon glyphicon-education\" aria-hidden=\"true\"></span> Czym jest BMI?</h2><p>BMI jest to współczynnik powstały przez podzielenie masy ciała (podanej w kilogramach) przez kwadrat wysokości (podanej w metrach). Klasyfikacja wskaźnika <strong>BMI dotyczy wyłącznie osób dorosłych i nie może być stosowana u dzieci.</strong></p><p>Obliczenie wskaźnika BMI jest bardzo proste, jednak nie uwzględnia indywidualnej budowy ciała. W praktyce, osoby o bardzo dużej masie mięśniowej będą miały wysokie wartości BMI wskazujące na skrajną otyłość, posiadając jednocześnie bardzo niewielką ilość tkanki tłuszczowej. Z drugiej strony, wartości BMI lekkoatletów mogą wskazywać na skrajną niedowagę. BMI nie jest zatem precyzyjnym wskaźnikiem niedowagi i nadwagi oraz ryzyk chorób z nimi związanych. O wiele dokładniejsze, lecz wymagające specjalnej aparatury, jest wyznaczenie <strong>procentowej zawartości tłuszczu w organizmie</strong>.</p><hr /><h2 class=\"text-uppercase\">Wskaźnik BMI a bieganie</h2><p><strong>Masa ciała ma ogromne znaczenie w bieganiu długodystansowym</strong>. Każdy dodatkowy kilogram naszej wagi powoduje, że mięśnie muszą wykonywać większą pracę, a układ kostny – przenosić większe obciążenia. Spróbuj pobiec z kilogramowymi ciężarkami w rękach, aby przekonać się o wpływie dodatowej masy na szybkość i lekkość biegania. Prawa fizyki obowiązują wszędzie tak samo – niska waga przekłada się na szybkość. Nie bez powodu bolidy F1 konstruuje się z najlżejszych, a jednocześnie najbardziej trwałych materiałów znanych ludzkości. Jeśli myślisz zatem o poprawianiu swoich wyników, pamiętaj, że utrzymywanie niskiej wagi ciała pełni bardzo ważną rolę. <strong>Większość zawodowych biegaczy długodystansowych ma wskaźnik BMI poniżej 22</strong>, nierzadko schodząc nawet poniżej normy. Przykładowo, rekordzistka świata w maratonie - Paula Radcliffe, przy wzroście 173 cm i wadze 54 kg ma wskaźnik BMI na poziomie 18,04, wskazujący na niedowagę.</p><p><strong>Zupełnie inaczej wartości BMI kształtują się wśród biegaczy krótkodystansowych</strong>. Ci bardzo często mają BMI blisko górnej granicy lub nawet powyżej normy. Wynika to z bardzo dużej masy mięśniowej - o wiele większej niż u długodystansowców, przy jednoczesnym niskim poziomie tkanki tłuszczowej. Dla przykładu, najszybszy człowiek świata – Usain Bolt, przy wzroście 195 cm i wadze 92 kg ma BMI na poziomie 24,19 i tylko kilogramy dzielą go od nadwagi. Natomiast BMI halowego mistrza świata w sprincie na 60 metrów - Dwaina Chambersa wynosi 25,6, co według klasyfikacji oznacza nadwagę.</p>",
+      "DESCRIPTION_BELOW":"<p class=\"lead text-center\">Twoja wartość BMI oznacza <strong class=\"bg-info bmi-scale\">NIEDOWAGĘ</strong>.</p><hr /><p>Jeżeli nie uprawiasz wyczynowo żadnego sportu, powinieneś(-aś) jak najszybciej udać się do lekarza - tak niska waga przy braku aktywności fizycznej <strong>nie wróży zbyt dobrze dla Twojego organizmu!</strong></p><hr /><p>Jednak jeśli uprawiasz bieganie lub inne sporty wytrzymałościowe na wysokim poziomie, to <strong>niska wartość BMI jest w pełni usprawiedliwiona</strong>. Wyczynowcy najwyższej klasy, odżywiający się solidnie i adekwatnie do swoich potrzeb energetycznych, bardzo często mają wskaźnik BMI wskazujący na niedowagę, lecz nie jest to oznaka patologicznego niedożywienia czy też wychudzenia organizmu.</p><p>Posiadając tak niską wartość BMI, możesz wykonywać każdy rodzaj treningu biegowego gdyż Twój układ ruchu nie jest narażony na przeciążenia. Możesz też śmiało biegać w butach z ograniczoną amortyzacją lub w butach minimalistycznych. Przy biegach długodystansowych, <strong>niska wartość BMI jest wręcz pożądana</strong>.</p>",
+      "DESCRIPTION_NORMAL":"<p class=\"lead text-center\">Twoja wartość BMI oznacza <strong class=\"bg-success bmi-scale\">PRAWIDŁOWĄ WAGĘ.</strong></p><hr /><p>Jeżeli udaje Ci się utrzymywać taką wagę bez regularnej aktywności fizycznej, oznacza to, że Twoja dieta jest odpowiednio zbilansowana. Możesz sobie pogratulować, gdyż w dzisiejszych czasach to raczej wyjątek potwierdzający regułę – <strong>w tym zakresie znajdują się w większości osoby regularnie uprawiający sport.</strong></p><hr /><p>Jeżeli Twoje BMI wynosi <strong>poniżej 23, to bardzo dobrze rokuje dla Twojego biegowego rozwoju</strong> – jest to BMI większości czołowych biegaczy. Możesz śmiało stosować urozmaicone treningi biegowe bez większych obaw o kontuzje i przeciążenia. Możesz też biegać w butach z mniejszą amortyzacją. Jeżeli przybędzie ci kilka dodatkowych kilogramów (np. w okresie roztrenowania), nie musisz zmieniać diety. Wystarczy, że zwiększysz intensywność lub objętość treningów.</p><hr /><p>Jeśli zaś Twoje BMI znajduje się <strong>w zakresie 23-25, musisz bardzo ostrożnie podchodzić do ambitniejszych planów treningowych</strong>. Zalecane jest zbicie wagi poprzez długie biegi w zakresie tlenowym oraz stosowanie butów z dobrym systemem amortyzacji. Podczas biegu powinieneś(-aś) lądować na całej stopie lub na pięcie, odradza się tzw. „biegania ze śródstopia”. Musisz też mocno pilnować się, aby nie spaść do kategorii pt. &quot;nadwaga&quot;.</p>",
+      "DESCRIPTION_ABOVE":"<p class=\"lead text-center\">Twoja wartość BMI oznacza <strong class=\"bg-warning bmi-scale\">NADWAGĘ.</strong></p><hr /><p>Nie powinieneś(-aś) prowadzić zaawansowanych treningów biegowych o dużej objętości kilometrowej. <strong>Wskazane są marszobiegi</strong> (bieg przeplatany z marszem) albo lekki trucht, mające na celu spalenie nadmiernej tkanki tłuszczowej. Możesz też próbować innych dyscyplin sportu, takich jak <strong>pływanie, rower, nordic walking lub chodzenie po schodach</strong>, które pozwolą spalić nadwyżki kalorii, a nie będą obciążać twoich stawów w tak wielkim stopniu jak bieganie.</p><p>Po unormowaniu masy ciała możesz stopniowo wprowadzać do swoich treningów dłuższe wybiegania i treningi szybkościowe. Twoje buty do biegania powinny <strong>koniecznie posiadać dobry system amortyzacji.</strong></p>",
+      "DESCRIPTION_OBESE":"<p class=\"lead text-center\">Twoja wartość BMI oznacza <strong class=\"bg-danger bmi-scale\">OTYŁOŚĆ.</strong></p><hr /><p>Przy tej wadze <strong>bieganie nie wchodzi w grę</strong>. Twoje stawy i układ kostny są zbyt mocno narażone na przeciążenia, więc jeśli nie chcesz wyrządzić sobie krzywdy i wylądować u lekarza, najpierw powinieneś(-aś) zająć się unormowaniem swojej masy ciała. Z otyłości do biegania nie ma żadnej drogi na skróty!</p><hr /><p>W pierwszej kolejności powinieneś(-aś) <strong>zmienić swoje nawyki żywieniowe</strong> - przejść na zdrową, dobrze zbilansowaną dietę. Nie stosuj głodówek, po prostu jedz mniej (np. zasada JP – Jedz Połowę), ale przede wszystkim zdrowo! Wyrzuć ze swojego menu słodycze, białe pieczywo, słodkie napoje, fast foody itp. Zacznij czytać etykiety na produktach – zdziwisz się w jakich produktach znajduje się cukier i inne słodziki. Unikaj węglowodanów prostych i zamień je na węglowodany złożone. Dostarczaj organizmowi odpowiednią ilość witamin i minerałów. Po kilku tygodniach powinieneś(-aś) zauważyć spadek masy ciała. W praktyce, zmiana diety dla wielu osób jest najtrudniejszym wyzwaniem, a dla niektórych wręcz niemożliwym. <strong>Najczęściej problem siedzi &quot;w głowie&quot;</strong>. Jeśli więc nie potrafisz opanować swojego łaknienia, poszukaj dobrego psychodietetyka i wspólnie rozpracujcie ten problem.</p><br /><p>Po drugie, musisz zacząć się ruszać. Zaopatrz się w <strong>buty z dobrą amortyzacją</strong> i zacznij od marszów (nie biegania!) Stopniowo zwiększaj czas i intensywność marszów aż dojdziesz do 0,5-1h ciągłego marszu. Możesz też pływać, jeździć na rowerze lub na orbitreku, chodzić z kijkami nordic walking – dyscypliny te nie obciążają stawów i układu kostnego w tak wielkim stopniu jak bieganie. Dopiero gdy uda Ci się przekroczyć granicę otyłość-nadwaga, możesz przejść na wyższy poziom wtajemniczenia, czyli do marszobiegów. Nie przerażaj się jeśli na początki zauważysz lekki wzrost masy ciała – jest to efekt zamiany tkanki tłuszczowej na mięśnie (mięśnie są cięższe od tłuszczu). Konsekwentnie i wytrwale realizuj swój plan, aż zauważysz znaczny spadek masy ciała. <strong>Pamiętaj, że do biegania wolno Ci przejść dopiero, gdy Twoje BMI będzie w przedziale wagi prawidłowej</strong>.</p>"
+   },
+   "PACE": {
+      "CALCULATOR_NAME":"Kalkulator tempa biegu",
+      "TITLE":"Oblicz tempo biegu",
+      "LEAD":"<p>Za pomocą tego kalkulatora ustalisz, jakie jest niezbędne tempo oraz prędkość biegu do osiągnięcia zaplanowanego rezultatu na określonym dystansie.</p>",
+      "ABOUT":"",
+      "DISTANCE":"Dystans",
+      "DISTANCE_LABEL":"Wybierz lub podaj dystans:",
+      "TIME_LABEL":"Planowany wynik (HH:MM:SS):",
+      "SUBMIT":"Oblicz tempo",
+      "RESULT_PACE":"Twoje tempo wynosi",
+      "RESULT_SPEED":"Jest to prędkość"
+   },
+   "CAL": {
+      "CALCULATOR_NAME":"Kalkulator spalonych kalorii",
+      "TITLE":"Oblicz spalone kalorie",
+      "LEAD":"<p>Za pomocą tego kalkulatora oszacujesz ilość energii wyrażoną w kilokaloriach (1 kcal = 1000 cal), jaką zużyje Twój organizm podczas biegania na określonym dystansie.</p>",
+      "ABOUT":"<hr /><h2 class=\"text-uppercase\"><span class=\"glyphicon glyphicon-education\" aria-hidden=\"true\"></span> Bieganie a spalanie kalorii</h2><p>Bieganie jest <strong>jednym z najefektywniejszych sposobów spalania kalorii</strong>. Niestety nie jest możliwe precyzyjnie wyznaczenie liczby spalonych kalorii, gdyż wartość ta zależy od bardzo wielu czynników (np. rodzaj terenu, ciśnienia atmosferycznego, samopoczucia, stopnia wytrenowania). Możemy jednak z dużym przybliżeniem oszacować liczbę kalorii na podstawie pokonanego dystansu oraz wagi biegającego.</p><p>Zgodnie z intuicją oraz zasadami fizyki, <strong>dłuższy dystans będzie oznaczał więcej zużytej energii</strong>. Warto też zaznaczyć, że nie jest istotna prędkość biegu. 10 km w 35 minut i 10 km w godzinę będą dla tego samego biegacza oznaczały podobny koszt kaloryczny. <strong>Im cięższy biegacz, tym więcej kalorii zostanie spalonych podczas biegania.</strong></p>",
+      "DISTANCE":"Dystans [km]",
+      "DISTANCE_LABEL":"Podaj dystans (w km):",
+      "WEIGHT":"Waga [kg]",
+      "WEIGHT_LABEL":"Podaj wagę (w kg):",
+      "TIME_LABEL":"Czas biegu (HH:MM:SS):",
+      "SUBMIT":"Oblicz kalorie",
+      "RESULT":"W trakcie biegu spalono",
+      "DESCRIPTION":"<p class=\"lead text-center\">Podczas biegu takim tempem spalasz <strong class=\"bg-info cal-rate\">{{ calories_per_km }}</strong> kcal/km i <strong class=\"bg-info cal-rate\">{{ calories_per_hour }}</strong> kcal/h.</p>"
+   },
+   "LAPS": {
+      "CALCULATOR_NAME":"Kalkulator czasu odcinka",
+      "TITLE":"Oblicz czas odcinka",
+      "LEAD":"<p>Za pomocą tego kalkulatora możesz obliczyć, znając planowane tempo biegu, w jakim czasie powinieneś(-aś) pokonywać wybrany odcinek (np. okrążenie, fragment trasy).</p>",
+      "ABOUT":"",
+      "PACE_LABEL":"Tempo biegu (MM:SS)/km",
+      "DISTANCE_LABEL":"Dystans odcinka (metry)",
+      "DISTANCE":"Dystans [m]",
+      "SUBMIT":"Oblicz czas odcinka",
+      "RESULT":"Czas pokonania odcinka wynosi:"
+   },
+   "VDOT": {
+      "CALCULATOR_NAME":"Kalkulator prędkości treningowych i startowych",
+      "TITLE":"Wyznacz tempa startowe i treningowe",
+      "LEAD":"<p>Za pomocą tego kalkulatora wyznaczysz optymalne tempa treningowe oraz oszacujesz tempa startowe na poszczególnych dystansach. Kalkulator oparty jest o współczynnik mocy tlenowej (VDOT) Jacka Danielsa.</p>",
+      "ABOUT": "<hr /><h2 class=\"text-uppercase\"><span class=\"glyphicon glyphicon-education\" aria-hidden=\"true\"></span> Czym jest współczynnik VDOT?</h2><p><strong>Jack Daniels</strong>, uznawany za jednego z najlepszych trenerów biegania na świecie, już 30 lat temu opracował i opublikował tabele współczynników <strong>VDOT - czyli biegowej mocy tlenowej</strong>. Jednym z największych osiągnięć Danielsa jest stworzenie jasnego, spójnego i logicznego systemu treningowego wykorzystywanego przez biegaczy na całym świecie – zarówno amatorów jak i trenujących na wyczynowym, zawodowym poziomie.</p><p>Wartość wskaźnika VDOT jest wyznaczana <strong>na podstawie wyniku w zawodach rozgrywanych w ostatnim czasie</strong>. Współczynnik ten pozwala określić na jakim poziomie wytrenowania aktualnie się znajdujemy oraz pozwala oszacować tempa startowe i treningowe na poszczególnych dystansach.</p><p>Jak szybko powinienem biegać 400-tki? W jakim tempie robić spokojne wybiegania? Mój ostatni rekord na 10 km to 40 minut. Jakiego czasu mógłbym się spodziewać na półmaratonie? - Oto jedne z najczęstszych pytań, zadawanych przez biegaczy na całym świecie, zarówno zawodowców jak i amatorów. Tabele współczynników VDOT Danielsa pozwalają odpowiedzieć na te pytania, <strong>trenować w sposób świadomy i unikać przetrenowania</strong>.</p>",
+      "DISTANCE_LABEL": "Mój ostatni rekord na dystansie:",
+      "TIME_LABEL": "wynosi (HH:MM:SS):",
+      "SUBMIT": "Oblicz",
+      "ERROR_BELOW": "Podany wynik jest poniżej skali wartości VDOT.",
+      "RESULT": "Twój wskaźnik VDOT wynosi:",
+      "RACING": {
+         "TAB": "Tempa startowe",
+         "DESCRIPTION": "Tabela poniżej przedstawia przybliżone czasy, które powinieneś(-aś) uzyskać podczas zawodów na poszczególnych dystansach. Ostatnia kolumna zawiera tempo biegu niezbędne, aby uzyskać dany rezultat.",
+         "TABLE": {
+            "DISTANCE": "Dystans",
+            "TIME": "Czas",
+            "PACE": "Tempo",
+            "HALF_MARATHON": "Półmaraton",
+            "MARATHON": "Maraton"
+         }
+      },
+      "TRAINING": {
+         "TAB": "Tempa treningowe",
+         "DESCRIPTION": "W tabeli poniżej znajdują się tempa biegu w poszczególnych strefach treningowych. Bardzo ważne jest, aby tempo treningów było dostosowane do Twojej aktualnej formy (wartości VDOT), nie zaś do formy docelowej. Wykonywanie treningów w tempie wykraczającym poza Twoją aktualną wartość VDOT zwiększa ryzyko wystąpienia kontuzji i przetrenowania.",
+         "TABLE": {
+            "TRAINING_ZONE": "Strefa treningowa",
+            "PACE": "Tempo",
+            "EASY_PACE": "Jest to spokojne bieganie w tempie konwersacyjnym, na poziomie 65-79% tętna maksymalnego. W tej strefie treningowej nie jest istotne tempo biegu, lecz czas wykonywanego wysiłku – im dłużej, tym lepiej. Celem tego środka treningowego jest ogólna poprawa pracy układu krążenia oraz lepsze ukrwienie (dotlenienie) mięśni. Spokojny bieg wprowadza zmiany na poziomie komórkowym – zwiększa liczbę mitochondriów w komórkach mięśniowych, prowadząc do lepszego wytrenowania, szybszej regeneracji, przyzwyczaja organizm do długotrwałego wysiłku. Spokojne bieganie jest fundamentem pod bardziej intensywną pracę biegową.",
+            "MARATHON_PACE": "Jest to bieg w tempie maratońskim, o intensywności 80-90% HRmax. Jest to ostatnia intensywność, przy której ilość tlenu dostarczanego do organizmu równa jest jego zużyciu, niepowodująca wzrostu poziomu kwasu mlekowego we krwi. Stosujemy go w postaci biegu ciągłego lub długich powtórzeń (np. 2x6 km, 2x8 km), ale nie więcej niż 25 km. Jest to środek przygotowujący do biegu maratońskiego lub jako alternatywa dla biegu spokojnego (Easy).",
+            "THRESHOLD_PACE": "Trening okołoprogowy, według Danielsa jest to bieg z intensywnością w granicach 88-92% HRmax. Jest to najwyższa prędkość biegu, przy której szybkość wydzielania kwasu mlekowego w organizmie jest taka sama, jak jego usuwanie z organizmu (tzw. próg mleczanowy). Jest to intensywność, którą w warunkach startowych powinniśmy być w stanie utrzymać przez godzinę. Dla szybkich biegaczy jest to zatem prędkość półmaratońska, dla wolniejszych – prędkość startowa na 10-15 km. Trening okołoprogowy to bieg ciągły na dystansie 5-6 km (około 20 minut) lub powtórzenia 5-15 minutowe, z przerwą 1-3 min. pomiędzy powtórzeniami. Jest to podstawowy środek budujący wytrzymałość. Celem biegu w strefie okołoprogowej jest wytrenowanie organizmu, aby szybciej i sprawniej usuwał kwas mlekowy. Bieg szybszym tempem niż tempo okołoprogowe wcale nie przyniesie dodatkowych korzyści, a jedynie wydłuży czas regeneracji.",
+            "INTERVALS": "Interwały, według Danielsa to bieg z intensywnością 98-100% HRmax, na odcinkach trwających nie dłużej niż 5 minut. Tempo biegu jest zbliżone do tempa startowego na 5 km. Interwał to bieg o wysokiej intensywności trwający około 3-5 minut, z przerwą aktywną (w truchcie) o podobnej długości. Celem treningu interwałowego jest pobudzenie w maksymalnym stopniu naszego silnika tlenowego - VO2max. Podczas interwałów biegamy z maksymalną mocą, na jaką pozwalają nam nasze możliwości tlenowe – czyli na poziomie 100% VO2max.",
+            "REPETITIONS": "Jest to trening wykraczający poza strefę tlenową (powyżej VO2max) – bieg w tempie szybszym, niż tempo startowe na 5 km. Są to bardzo szybkie odcinki przeplatane długą przerwą (np. 90 sek. szybko, przerwa: 3-5 minut). Przerwa pomiędzy odcinkami musi być na tyle długa, aby kolejny szybki odcinek wykonać na pełnej prędkości. Głównym celem treningu powtórzeniowego jest poprawa szybkości i ekonomii biegu – zwracamy uwagę na poprawną technikę biegu i eliminujemy niepotrzebne ruchy. Podbiegi również są rodzajem treningu powtórzeniowego."
+         }
+      }
+   }
+
+}

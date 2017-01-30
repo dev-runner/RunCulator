@@ -1,0 +1,74 @@
+<div class="col-md-5">
+
+	<form name="LapsForm" class="form-horizontal calculator-form" ng-submit="laps.processForm()" novalidate>
+
+		<!-- PACE (MM:SS) per KM -->
+		<div class="form-group">
+			<label class="col-sm-8 col-sm-offset-2" for="lapMinutes">{{ 'LAPS.PACE_LABEL' | translate }}</label>
+
+			<div class="col-sm-4 col-sm-offset-2">
+				<input type="number" name="minutes" min="0" max="59" class="form-control text-center"
+					placeholder="MM" ng-model="laps.pace.minutes" id="lapMinutes" ng-change="removeErrors()">
+			</div>
+			<div class="col-sm-4">
+				<input type="number" name="seconds" min="0" max="59" class="form-control text-center"
+					placeholder="SS" ng-model="laps.pace.seconds" id="lapSeconds" ng-change="removeErrors()">
+			</div>
+		</div>
+
+		<!-- DISTANCE (m) -->
+		<div class="form-group">
+			<div class="col-sm-8 col-sm-offset-2">
+				<label for="lapsDistance">{{ 'LAPS.DISTANCE_LABEL' | translate }}</label>
+				<div class="input-group">
+					<input type="number" name="distance" min="1" step="1" class="form-control text-center"
+						placeholder="{{ 'LAPS.DISTANCE' | translate}}" ng-model="laps.distance" id="lapsDistance"
+						ng-change="removeErrors()" required>
+					<div class="input-group-addon">m</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- SUBMIT -->
+		<div class="form-group">
+			<div class="col-sm-8 col-sm-offset-2">
+				<button type="submit" class="btn btn-danger btn-lg btn-block">{{ 'LAPS.SUBMIT' | translate | uppercase }}</button>
+			</div>
+		</div>
+
+		<!-- ERRORS -->
+		<div class="form-group" ng-show="LapsForm.$submitted && errors">
+			<div class="col-sm-8 col-sm-offset-2">
+				<div uib-alert ng-repeat="error in errors" class="alert alert-danger" close="closeError($index)">{{ error.msg }}</div>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="col-md-7">
+
+	<!-- laps info -->
+	<article ng-if="!laps.result" class="animate-if">
+		<header>
+			<h2 class="text-uppercase">{{ 'LAPS.TITLE' | translate}}</h2>
+		</header>
+		<section ng-bind-html="'LAPS.LEAD' | translate | htmlSafe"></section>
+	</article>
+
+	<!-- laps result -->
+	<article ng-if="laps.result" class="animate-if">
+		<section ng-class="{invisible: !laps.calculated}">
+			<header>
+				<h2 class="text-center text-uppercase">{{ 'LAPS.RESULT' | translate }}</h2>
+			</header>
+			<p class="result laps">
+				<mark ng-if="laps.result.hours">{{ laps.result.hours }}h</mark>
+				<mark>{{ laps.result.minutes }} min</mark>
+				<mark>{{ laps.result.seconds }} sek</mark>
+			</p>
+		</section>
+		<hr />
+		<a ng-click="goBack(laps)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
+	</article>
+
+</div>

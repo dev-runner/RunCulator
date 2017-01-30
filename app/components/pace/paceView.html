@@ -1,0 +1,87 @@
+<div class="col-md-5">
+
+	<form name="PaceForm" class="form-horizontal calculator-form" ng-submit="pace.processForm()" novalidate>
+
+		<!-- DISTANCE (km) -->
+		<div class="form-group">
+			<label class="col-sm-9 col-sm-offset-1" for="paceDistance">{{ 'PACE.DISTANCE_LABEL' | translate }}</label>
+			<div class="col-sm-4 col-sm-offset-1">
+				<select name="distanceSelected" id="selectDistance" class="form-control"
+					ng-model="pace.selectedDistance" ng-change="pace.changeDistance(); removeErrors();" required>
+					<option value="" selected>{{ 'CONTROLS.CHOOSE' | translate }}</option>
+					<option value="1">1 km</option>
+					<option value="3">3 km</option>
+					<option value="5">5 km</option>
+					<option value="10">10 km</option>
+					<option value="21.0975">21,0975 km ({{ 'CONTROLS.HALF_MARATHON' | translate}})</option>
+					<option value="42.195">42,195 km ({{ 'CONTROLS.MARATHON' | translate }})</option>
+				</select>
+			</div>
+			<div class="col-sm-5">
+				<div class="input-group">
+					<input type="number" name="distance" min="1" step="1" class="form-control text-center"
+						placeholder="{{ 'PACE.DISTANCE' | translate}}" ng-model="pace.distance" id="paceDistance"
+						ng-change="pace.resetDistance(); removeErrors();" required>
+					<div class="input-group-addon">km</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- TIME (HH:MM:SS) -->
+		<div class="form-group">
+			<label class="col-sm-10 col-sm-offset-1" for="paceHours">{{ 'PACE.TIME_LABEL' | translate }}</label>
+			
+			<div class="col-sm-3 col-sm-offset-1">
+				<input type="number" name="hours" min="0" max="99" class="form-control text-center"
+					placeholder="HH" ng-model="pace.time.hours" id="paceHours" ng-change="removeErrors()">
+			</div>
+			<div class="col-sm-3">
+				<input type="number" name="minutes" min="0" max="59" class="form-control text-center"
+					placeholder="MM" ng-model="pace.time.minutes" id="paceMinutes" ng-change="removeErrors()">
+			</div>
+			<div class="col-sm-3">
+				<input type="number" name="seconds" min="0" max="59" class="form-control text-center"
+					placeholder="SS" ng-model="pace.time.seconds" id="paceSeconds" ng-change="removeErrors()">
+			</div>
+		</div>
+
+		<!-- SUBMIT -->
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-1">
+				<button type="submit" class="btn btn-danger btn-lg btn-block">{{ 'PACE.SUBMIT' | translate | uppercase }}</button>
+			</div>	
+		</div>
+
+		<!-- ERRORS -->
+		<div class="form-group" ng-show="PaceForm.$submitted && errors">
+			<div class="col-sm-9 col-sm-offset-1">
+				<div uib-alert ng-repeat="error in errors" class="alert alert-danger" close="closeError($index)">{{ error.msg }}</div>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="col-md-7">
+
+	<!-- pace info -->
+	<article ng-if="!pace.result" class="animate-if">
+		<header>
+			<h2 class="text-uppercase">{{ 'PACE.TITLE' | translate}}</h2>
+		</header>
+		<section ng-bind-html="'PACE.LEAD' | translate | htmlSafe"></section>
+	</article>
+
+	<!-- pace result -->
+	<article ng-if="pace.result" class="animate-if">
+		<section ng-class="{invisible: !pace.calculated}">
+			<h2 class="text-center text-uppercase">{{ 'PACE.RESULT_PACE' | translate }}</h2>
+			<p class="result tempo"><mark>{{ pace.result.pace.minutes }}&rsquo;{{ pace.result.pace.seconds }}&rdquo; /km</mark></p>
+
+			<h2 class="text-center text-uppercase">{{ 'PACE.RESULT_SPEED' | translate }}</h2>
+			<p class="result tempo"><mark>{{ pace.result.speed }} km/h</mark></p>
+		</section>
+		<hr />
+		<a ng-click="goBack(pace)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
+	</article>
+
+</div>

@@ -1,0 +1,64 @@
+<div class="col-md-5">
+
+	<form name="BmiForm" class="form-horizontal calculator-form" ng-submit="bmi.processForm()" novalidate autocomplete="off">
+
+		<!-- HEIGHT (cm) -->
+		<div class="form-group">
+			<div class="col-sm-8 col-sm-offset-2">
+				<label for="bmiHeight">{{ 'BMI.HEIGHT_LABEL' | translate }}</label>
+				<input type="number" name="height" min="60" max="250" class="form-control input-lg text-center"
+					placeholder="{{'BMI.HEIGHT' | translate}}" ng-model="bmi.height" id="bmiHeight" ng-change="removeErrors()" required>
+			</div>
+		</div>
+
+		<!-- WEIGHT (kg) -->
+		<div class="form-group">
+			<div class="col-sm-8 col-sm-offset-2">
+				<label for="bmiWeight">{{ 'BMI.WEIGHT_LABEL' | translate }}</label>
+				<input type="number" name="weight" min="30" max="300" class="form-control input-lg text-center"
+					placeholder="{{'BMI.WEIGHT' | translate}}" ng-model="bmi.weight" id="bmiWeight" ng-change="removeErrors()" required>
+			</div>
+		</div>
+
+		<!-- SUBMIT -->
+		<div class="form-group">
+			<div class="col-sm-8 col-sm-offset-2">
+				<button type="submit" class="btn btn-danger btn-lg btn-block">{{'BMI.SUBMIT' | translate | uppercase }}</button>
+			</div>	
+		</div>
+
+		<!-- ERRORS -->
+		<div class="form-group" ng-show="BmiForm.$submitted && errors">
+			<div class="col-sm-8 col-sm-offset-2">
+				<div uib-alert ng-repeat="error in errors" class="alert alert-danger" close="closeError($index)">{{ error.msg }}</div>
+			</div>
+		</div>
+
+	</form>
+
+</div>
+<div class="col-md-7">
+
+	<!-- BMI info -->
+	<article ng-if="!bmi.result" class="animate-if">
+		<header>
+			<h2 class="text-uppercase">{{ 'BMI.TITLE' | translate }}</h2>
+		</header>
+		<section ng-bind-html="'BMI.LEAD' | translate | htmlSafe"></section>
+		<section ng-bind-html="'BMI.ABOUT' | translate | htmlSafe"></section>
+	</article>
+
+	<!-- BMI result and interpretation -->
+	<article ng-if="bmi.result" class="animate-if">
+		<section ng-class="{invisible: !bmi.calculated}">
+			<header>
+				<h2 class="text-center text-uppercase">{{ 'BMI.RESULT' | translate }}</h2>
+			</header>
+			<p class="result bmi"><mark class="{{bmi.result.class}}">{{ bmi.result.value }}</mark></p>
+			<section ng-bind-html="bmi.result.description | htmlSafe"></section>
+		</section>
+		<hr />
+		<a ng-click="goBack(bmi)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
+	</article>
+	
+</div>

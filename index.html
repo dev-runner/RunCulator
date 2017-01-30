@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="full" ng-app="runculator" lang="{{ $root.language }}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="{{ $root.appDescription }}" />
+	<meta name="author" content="{{ $root.author }}">
+	<title update-title></title>
+
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700&amp;subset=latin-ext" rel="stylesheet">
+
+	<!-- css -->
+	<link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/runculator.css" />
+	
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body ng-controller="AppController">
+    
+    <div class="container"> 
+		<!-- language selection -->
+		<div class="row langselect">
+			<div class="col-sm-3 col-sm-offset-9 text-right">
+				<label for="languageSelect">{{ 'NAV.CHOOSE_LANGUAGE' | translate }}:</label>
+				<select name="languageSelect" id="languageSelect"
+					ng-options="lang.name for lang in data.availableLanguages track by lang.id"
+					ng-model="data.selectedLanguage"
+					ng-change="changeLanguage(data.selectedLanguage.id)"></select>
+			</div>
+		</div>
+	</div>
+	<div class="container white">
+		<!-- header -->
+		<div class="row">
+			<div class="col-sm-12">
+				<h1 class="title"><a ui-sref="home" title="{{ $root.appDescription }}">{{ $root.appName }}</a></h1>
+			</div>
+		</div>
+		<!-- navigation -->
+		<nav>
+			<ul class="nav nav-pills nav-justified">
+				<li ui-sref-active="active"><a ui-sref="home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+				<li ui-sref-active="active"><a ui-sref="bmi">{{'NAV.BMI' | translate}}</a></li>
+				<li ui-sref-active="active"><a ui-sref="pace">{{'NAV.PACE' | translate}}</a></li>
+				<li ui-sref-active="active"><a ui-sref="calories">{{'NAV.CALORIES' | translate}}</a></li>
+				<li ui-sref-active="active"><a ui-sref="laps">{{ 'NAV.LAPS' | translate }}</a></li>
+				<li ui-sref-active="active"><a ui-sref="vdot">{{'NAV.TIME' | translate}}</a></li>
+			</ul>
+		</nav>
+		<!-- main app content -->
+		<div class="row content">
+			<div ui-view id="view" class="fade-in-up"></div>
+		</div>
+	</div>
+
+<!-- JS -->
+	<!-- Angular -->
+	<script src="app/bower_components/angular/angular.min.js"></script>
+	<script src="app/bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="app/bower_components/angular-touch/angular-touch.min.js"></script>
+	<script src="app/bower_components/angular-cookies/angular-cookies.min.js"></script>
+	<script src="app/bower_components/angular-translate/angular-translate.min.js"></script>
+	<script src="app/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	<script src="app/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
+	<script src="app/bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
+	<script src="app/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+	<script src="app/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+	<!-- The app -->	
+	<script src="app/app.module.js"></script>
+	<script src="app/app.translate.js"></script>
+	<script src="app/app.routes.js"></script>
+	
+	<!-- App controllers -->
+	<script src="app/shared/app/appController.js"></script>
+	<script src="app/shared/app/appFilter.js"></script>
+	<!-- bmi -->
+	<script src="app/components/bmi/bmiController.js"></script>
+	<script src="app/components/bmi/bmiService.js"></script>
+	<!-- pace -->
+	<script src="app/components/pace/paceController.js"></script>
+	<script src="app/components/pace/paceService.js"></script>
+	<!-- calories -->
+	<script src="app/components/calories/caloriesController.js"></script>
+	<script src="app/components/calories/caloriesService.js"></script>
+	<!-- laps -->
+	<script src="app/components/laps/lapsController.js"></script>
+	<script src="app/components/laps/lapsService.js"></script>
+	<!-- vdot -->
+	<script src="app/components/vdot/vdotController.js"></script>
+	<script src="app/components/vdot/vdotService.js"></script>
+	<script src="app/components/vdot/vdotTables.js"></script>
+
+</body>
+</html>
