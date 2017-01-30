@@ -3,8 +3,8 @@
 	angular.module('runculator.app')
 		.filter('timeFormat', timeFormatFilter)
 		.filter('paceFormat', paceFormatFilter)
-		.filter('convertPace', convertPaceFilter);
-
+		.filter('convertPace', convertPaceFilter)
+		.filter("htmlSafe", ['$sce', htmlSafeFilter]);
 	
 	// converts from seconds to hh:mm:ss
 	function timeFormatFilter(){
@@ -66,5 +66,11 @@
 		};
 	}
 
+	// trusted html filter
+	function htmlSafeFilter($sce) {
+	    return function(htmlCode){
+			return $sce.trustAsHtml(htmlCode);
+	    };
+	}
 
 })();

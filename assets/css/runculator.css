@@ -17,10 +17,17 @@ p {
 }
 a {
 	cursor: pointer;
+	color: #cc0000;
+	text-decoration: none;
+}
+a:hover {
+	color: #de3535;
+	text-decoration: none;
 }
 h1,h2,h3,h4{
 	font-weight: bold;
 }
+
 h1.title {
 	font-family: 'Lobster', cursive;
     font-size: 6em;
@@ -29,13 +36,7 @@ h1.title {
 	text-shadow: 2px 3px 5px rgba(0,0,0,0.23);
 	text-decoration: none;
 }
-h1.title a {
-	text-decoration: none;
-	color: #cc0000;
-}
-h1.title a:hover {
-	color: #de3535;
-}
+
 dt {
 	font-size: 20px;
 }
@@ -95,7 +96,7 @@ form.calculator-form label {
 	margin: 20px 0;
 	font-size: 2.9em;
 }
-.result mark {
+.result mark, .bg-info.cal-rate {
 	color: #ffffff;
 	background-color: #3fa9da;
 }
@@ -119,11 +120,6 @@ form.calculator-form label {
 .result.bmi mark.obese, .bg-danger.bmi-scale{
 	background-color: #cc2121;
 }
-
-.bg-info.cal-rate {
-	background-color: #3fa9da;
-}
-
 
 nav {
 	margin: 17px 0;
@@ -162,7 +158,6 @@ nav {
 	transform: none;
 }
 
-
 .animate-show-hide.ng-hide {
 	opacity: 0;
 }
@@ -170,7 +165,6 @@ nav {
 .animate-show-hide.ng-hide-remove {
 	transition: all linear 0.5s;
 }
-
 
 .animate-if.ng-enter /*, .animate-if.ng-leave*/ {
 	transition: all linear 0.5s;

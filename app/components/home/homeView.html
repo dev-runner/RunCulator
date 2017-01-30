@@ -2,29 +2,37 @@
 	
 	<section ng-bind-html="'HOME.LEAD' | translate | htmlSafe"></section>
 
+	<hr />
+
 	<dl>
 		<dt><a ui-sref="bmi" title="{{'BMI.CALCULATOR_NAME' | translate }}">{{'BMI.CALCULATOR_NAME' | translate }}</a></dt>
 		<dd ng-bind-html="'BMI.LEAD' | translate | htmlSafe"></dd>
+		<p class="text-right"><strong><a ui-sref="bmi">zobacz <span class="icon glyphicon glyphicon-chevron-right"></span></a></strong></p>
 
 		<hr />
 
 		<dt><a ui-sref="pace" title="{{ 'PACE.CALCULATOR_NAME' | translate }}">{{ 'PACE.CALCULATOR_NAME' | translate }}</a></dt>
 		<dd ng-bind-html="'PACE.LEAD' | translate | htmlSafe"></dd>
+		<p class="text-right"><strong><a ui-sref="pace">zobacz <span class="icon glyphicon glyphicon-chevron-right"></span></a></strong></p>
 
 		<hr />
 
 		<dt><a ui-sref="calories" title="{{ 'CAL.CALCULATOR_NAME' | translate }}">{{ 'CAL.CALCULATOR_NAME' | translate }}</a></dt>
 		<dd ng-bind-html="'CAL.LEAD' | translate | htmlSafe"></dd>
+		<p class="text-right"><strong><a ui-sref="calories">zobacz <span class="icon glyphicon glyphicon-chevron-right"></span></a></strong></p>
 
 		<hr />
 
 		<dt><a ui-sref="laps" title="{{ 'LAPS.CALCULATOR_NAME' | translate }}">{{ 'LAPS.CALCULATOR_NAME' | translate }}</a></dt>
 		<dd ng-bind-html="'LAPS.LEAD' | translate | htmlSafe"></dd>
+		<p class="text-right"><strong><a ui-sref="laps">zobacz <span class="icon glyphicon glyphicon-chevron-right"></span></a></strong></p>
 
 		<hr />
 
 		<dt><a ui-sref="vdot" title="{{ 'VDOT.CALCULATOR_NAME' | translate }}">{{ 'VDOT.CALCULATOR_NAME' | translate }}</a></dt>
 		<dd ng-bind-html="'VDOT.LEAD' | translate | htmlSafe"></dd>
+		<p class="text-right"><strong><a ui-sref="vdot">zobacz <span class="icon glyphicon glyphicon-chevron-right"></span></a></strong></p>
+
 	</dl>
 
 </div>

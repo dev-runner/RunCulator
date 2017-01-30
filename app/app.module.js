@@ -43,63 +43,10 @@
 			});
 		});
 
-		// set meta html tags
+		// set meta tags
 		$rootScope.appName = appConfig.appName;
 		$rootScope.author = appConfig.authorName + " <" + appConfig.authorEmail + ">";
 
-	}]);
-
-	
-	// self-updating page title
-	angular.module('runculator').directive('updateTitle',
-		['$rootScope','$timeout','$translate','$state','appConfig', function($rootScope, $timeout, $translate, $state, appConfig){
-
-		return {
-			restrict: 'A',
-			link: function(scope, element){
-
-				// update title on state transition
-				$rootScope.$on('$stateChangeSuccess', function(event, toState){
-
-					var selectedLang = $translate.use();
-					var title = appConfig.appName;
-
-					if(toState.data && toState.data.pageTitle){
-						title += ' | ' + toState.data.pageTitle[selectedLang];
-					} else {
-						title += ' | ' + $rootScope.appDescription;
-					}
-
-					// update <title> tag
-					$timeout(function(){ element.text(title); },0,false);
-				});
-
-				// update title on language change
-				$rootScope.$on("$translateChangeSuccess", function(){
-					
-					var selectedLang = $translate.use();
-					var title = appConfig.appName;
-
-					if($state.current.data && $state.current.data.pageTitle){
-						title += ' | ' + $state.current.data.pageTitle[selectedLang];
-					} else {
-						title += ' | ' + $rootScope.appDescription;
-					}
-
-					// update <title> tag
-					$timeout(function(){ element.text(title); },0,false);
-				});
-
-			}
-		};
-
-	}]);
-
-
-	angular.module('runculator').filter("htmlSafe", ['$sce', function($sce) {
-	    return function(htmlCode){
-			return $sce.trustAsHtml(htmlCode);
-	    };
 	}]);
 
 
