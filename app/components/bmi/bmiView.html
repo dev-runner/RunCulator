@@ -7,7 +7,7 @@
 			<div class="col-sm-8 col-sm-offset-2">
 				<label for="bmiHeight">{{ 'BMI.HEIGHT_LABEL' | translate }}</label>
 				<input type="number" name="height" min="60" max="250" class="form-control input-lg text-center"
-					placeholder="{{'BMI.HEIGHT' | translate}}" ng-model="bmi.height" id="bmiHeight" ng-change="removeErrors()" required>
+					placeholder="{{'BMI.HEIGHT' | translate}}" ng-model="bmi.data.height" id="bmiHeight" ng-change="app.removeErrors()" required>
 			</div>
 		</div>
 
@@ -16,21 +16,21 @@
 			<div class="col-sm-8 col-sm-offset-2">
 				<label for="bmiWeight">{{ 'BMI.WEIGHT_LABEL' | translate }}</label>
 				<input type="number" name="weight" min="30" max="300" class="form-control input-lg text-center"
-					placeholder="{{'BMI.WEIGHT' | translate}}" ng-model="bmi.weight" id="bmiWeight" ng-change="removeErrors()" required>
+					placeholder="{{'BMI.WEIGHT' | translate}}" ng-model="bmi.data.weight" id="bmiWeight" ng-change="app.removeErrors()" required>
 			</div>
 		</div>
 
 		<!-- SUBMIT -->
 		<div class="form-group">
 			<div class="col-sm-8 col-sm-offset-2">
-				<button type="submit" class="btn btn-danger btn-lg btn-block">{{'BMI.SUBMIT' | translate | uppercase }}</button>
+				<button type="submit" class="btn btn-danger btn-lg btn-block">{{ 'BMI.SUBMIT' | translate | uppercase }}</button>
 			</div>	
 		</div>
 
 		<!-- ERRORS -->
-		<div class="form-group" ng-show="BmiForm.$submitted && errors">
+		<div class="form-group" ng-show="BmiForm.$submitted && app.errors.length">
 			<div class="col-sm-8 col-sm-offset-2">
-				<div uib-alert ng-repeat="error in errors" class="alert alert-danger" close="closeError($index)">{{ error.msg }}</div>
+				<div uib-alert ng-repeat="error in app.errors" class="alert alert-danger" close="app.closeError($index)">{{ error.msg }}</div>
 			</div>
 		</div>
 
@@ -58,7 +58,7 @@
 			<section ng-bind-html="bmi.result.description | htmlSafe"></section>
 		</section>
 		<hr />
-		<a ng-click="goBack(bmi)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
+		<a ng-click="app.goBack(bmi)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
 	</article>
 	
 </div>

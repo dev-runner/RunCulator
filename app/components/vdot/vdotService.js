@@ -1,13 +1,25 @@
 (function(){ 'use strict';
 
-	angular.module('runculator.vdot').factory('vdotService', ['vdotTable','vdotTrainingPaces', VdotService]);
+	angular
+		.module('runculator.vdot')
+		.factory('vdotService', VdotService);
+
+	VdotService.$inject = ['vdotTable','vdotTrainingPaces'];
 
 	function VdotService(vdotTable, vdotTrainingPaces){
 
-		var o = {};
+		var service = {
+			getVDOT: getVDOT,
+			getPaceInSeconds: getPaceInSeconds,
+			getResult: getResult
+		};
+
+		return service;
+
+		////////////////////////////////
 
 		// finds the VDOT factor
-		o.getVDOT = function(distance, timeInSeconds){
+		function getVDOT(distance, timeInSeconds){
 
 			var retVdot = null;
 
@@ -19,19 +31,21 @@
 				}
 			}
 			return retVdot;
-		};
+		}
+
 
 		// returns pace for given distance and time [s/km]
-		o.getPaceInSeconds = function(distance, timeInSeconds){
+		function getPaceInSeconds(distance, timeInSeconds){
 			return Math.floor(timeInSeconds/distance);
-		};
+		}
 
 		// returns result
-		o.getResult = function(distance, time){
+		function getResult(data){
 
-			time.hours = time.hours || 0;
-			time.minutes = time.minutes || 0;
-			time.seconds = time.seconds || 0;
+			var distance = data.selectedDistance;
+			var hours = data.time.hours || 0;
+			var minutes = data.time.minutes || 0;
+			var seconds = data.time.seconds || 0;
 
 			var result = {
 				vdot_value: null,
@@ -39,7 +53,7 @@
 				training_paces: null
 			};
 
-			var timeInSeconds = time.hours*3600 + time.minutes*60 + time.seconds;
+			var timeInSeconds = (hours*3600) + (minutes*60) + seconds;
 			var VDOT = this.getVDOT(distance, timeInSeconds);
 
 			if(VDOT){
@@ -48,10 +62,9 @@
 				result.training_paces = vdotTrainingPaces[VDOT];
 				return result;
 			}
-			return null;
-		};
+			return 'tooslow';
+		}
 
-		return o;
 	}
 	
 })();

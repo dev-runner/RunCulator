@@ -1,8 +1,11 @@
 (function(){ 'use strict';
 
 	// configure app routes	
-	angular.module('runculator')
-	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+	angular.module('runculator').config(configureRoutes);
+
+	configureRoutes.$inject = ['$stateProvider','$urlRouterProvider'];
+
+	function configureRoutes($stateProvider, $urlRouterProvider){
 
 		// define app states
 		$stateProvider
@@ -73,7 +76,7 @@
 
 		// default route
 		$urlRouterProvider.otherwise('/');
-
-	}]);
+		
+	}
 
 })();

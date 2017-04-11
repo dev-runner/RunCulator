@@ -59,18 +59,23 @@
 			if(splitPace.length == 2){
 				output += splitPace[0] + "'" + splitPace[1] + '"';
 				if(perKm) output += ' /km';
+			}
+			else if(splitPace.length == 1 && !isNaN(parseInt(splitPace[0])) ){
+				output += splitPace[0] + '"';
+				if(perKm) output += ' /km';	
 			} else {
 				output = '-';
 			}
 			return output;
 		};
 	}
-
+	
 	// trusted html filter
 	function htmlSafeFilter($sce) {
 	    return function(htmlCode){
 			return $sce.trustAsHtml(htmlCode);
 	    };
 	}
+
 
 })();

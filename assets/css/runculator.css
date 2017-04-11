@@ -15,12 +15,12 @@ p {
 	line-height: 1.5;
 	font-size: 18px;
 }
-a {
+a, a:visited, a:focus {
 	cursor: pointer;
 	color: #cc0000;
 	text-decoration: none;
 }
-a:hover {
+a:hover, a:active {
 	color: #de3535;
 	text-decoration: none;
 }
@@ -80,6 +80,14 @@ form.calculator-form {
 }
 form.calculator-form label {
 	font-size: 1.2em;
+}
+
+button[type="submit"]{
+	font-weight: bold;
+}
+.alert {
+	font-weight: bold;
+	text-align: center;
 }
 
 .row.content {

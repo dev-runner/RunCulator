@@ -2,49 +2,39 @@
 
 	angular.module('runculator.laps', []);
 
-	angular.module('runculator.laps')
-		.controller('LapsController', ['lapsService','$timeout','$scope','$translate', LapsController]);
+	angular
+		.module('runculator.laps')
+		.controller('LapsController', LapsController);
 
-	// Laps Controller
-	function LapsController(lapsService, $timeout, $scope, $translate){
+	LapsController.$inject = ['lapsService','$scope'];
 
-		this.result = this.distance = null;
-		this.pace = {
-			minutes: null,
-			seconds: null
+	function LapsController(lapsService, $scope){
+
+		/* jshint validthis: true */
+		var vm = this;
+
+		// bindable members
+		vm.calculated = false;
+		vm.data = {
+			distance: null,
+			pace: { minutes: null, seconds: null }
 		};
-		this.errorTranslations = {};
-		this.calculated = false;
-		var ctrl = this;
+		vm.result = null;
+		vm.processForm = processForm;
 
-		$translate('GENERAL.FORM_ERROR').then(function(translation){
-			ctrl.errorTranslations['error_form'] = translation;
-		});
+		///////////////////////
 
-
-		this.processForm = function(){
-			if(!this.distance || !this.validatePace()){
-				$scope.setError('danger', this.errorTranslations['error_form']);
-				return
+		function processForm(){
+			if(!vm.data.distance || !validatePace() ){
+				$scope.app.setError('danger','GENERAL.FORM_ERROR');
+				return;
 			}
-			this.getResult();
-		};
+			$scope.app.getResult(vm, lapsService, vm.data);
+		}
 
-
-		this.getResult = function(){
-			this.calculated = false;
-
-			function fetchResult(){
-				ctrl.result = lapsService.getResult(ctrl.distance, ctrl.pace);
-				ctrl.calculated = true;
-			}
-			$timeout(fetchResult, 300);
-		};
-
-		
-		this.validatePace = function(){
-			return (!this.pace.minutes && !this.pace.seconds) ? false : true;
-		};
+		function validatePace(){
+			return (!vm.data.pace.minutes && !vm.data.pace.seconds) ? false : true;
+		}
 
 	}
 

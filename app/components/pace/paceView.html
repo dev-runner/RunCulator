@@ -7,7 +7,7 @@
 			<label class="col-sm-9 col-sm-offset-1" for="paceDistance">{{ 'PACE.DISTANCE_LABEL' | translate }}</label>
 			<div class="col-sm-4 col-sm-offset-1">
 				<select name="distanceSelected" id="selectDistance" class="form-control"
-					ng-model="pace.selectedDistance" ng-change="pace.changeDistance(); removeErrors();" required>
+					ng-model="pace.selectedDistance" ng-change="pace.changeDistance(); app.removeErrors();" required>
 					<option value="" selected>{{ 'CONTROLS.CHOOSE' | translate }}</option>
 					<option value="1">1 km</option>
 					<option value="3">3 km</option>
@@ -20,8 +20,8 @@
 			<div class="col-sm-5">
 				<div class="input-group">
 					<input type="number" name="distance" min="1" step="1" class="form-control text-center"
-						placeholder="{{ 'PACE.DISTANCE' | translate}}" ng-model="pace.distance" id="paceDistance"
-						ng-change="pace.resetDistance(); removeErrors();" required>
+						placeholder="{{ 'PACE.DISTANCE' | translate}}" ng-model="pace.data.distance" id="paceDistance"
+						ng-change="pace.resetDistance(); app.removeErrors();" required>
 					<div class="input-group-addon">km</div>
 				</div>
 			</div>
@@ -33,15 +33,15 @@
 			
 			<div class="col-sm-3 col-sm-offset-1">
 				<input type="number" name="hours" min="0" max="99" class="form-control text-center"
-					placeholder="HH" ng-model="pace.time.hours" id="paceHours" ng-change="removeErrors()">
+					placeholder="HH" ng-model="pace.data.time.hours" id="paceHours" ng-change="app.removeErrors()">
 			</div>
 			<div class="col-sm-3">
 				<input type="number" name="minutes" min="0" max="59" class="form-control text-center"
-					placeholder="MM" ng-model="pace.time.minutes" id="paceMinutes" ng-change="removeErrors()">
+					placeholder="MM" ng-model="pace.data.time.minutes" id="paceMinutes" ng-change="app.removeErrors()">
 			</div>
 			<div class="col-sm-3">
 				<input type="number" name="seconds" min="0" max="59" class="form-control text-center"
-					placeholder="SS" ng-model="pace.time.seconds" id="paceSeconds" ng-change="removeErrors()">
+					placeholder="SS" ng-model="pace.data.time.seconds" id="paceSeconds" ng-change="app.removeErrors()">
 			</div>
 		</div>
 
@@ -53,9 +53,9 @@
 		</div>
 
 		<!-- ERRORS -->
-		<div class="form-group" ng-show="PaceForm.$submitted && errors">
+		<div class="form-group" ng-show="PaceForm.$submitted && app.errors.length">
 			<div class="col-sm-9 col-sm-offset-1">
-				<div uib-alert ng-repeat="error in errors" class="alert alert-danger" close="closeError($index)">{{ error.msg }}</div>
+				<div uib-alert ng-repeat="error in app.errors" class="alert alert-danger" close="app.closeError($index)">{{ error.msg }}</div>
 			</div>
 		</div>
 
@@ -81,7 +81,7 @@
 			<p class="result tempo"><mark>{{ pace.result.speed }} km/h</mark></p>
 		</section>
 		<hr />
-		<a ng-click="goBack(pace)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
+		<a ng-click="app.goBack(pace)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
 	</article>
 
 </div>

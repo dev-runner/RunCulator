@@ -2,60 +2,53 @@
 	
 	angular.module('runculator.pace',[]);
 
-	angular.module('runculator.pace')
-		.controller('PaceController', ['paceService','$timeout','$scope','$translate', PaceController]);
+	angular
+		.module('runculator.pace')
+		.controller('PaceController', PaceController);
 
-	// Pace Controller
-	function PaceController(paceService, $timeout, $scope, $translate){
+	PaceController.$inject = ['paceService','$scope'];
 
-		this.result = this.distance = null;
-		this.time = {
-			hours: null,
-			minutes: null,
-			seconds: null
-		};
-		this.selectedDistance = '';
-		this.errorTranslations = {};
-		this.calculated = false;
-		var ctrl = this;
-
-		$translate('GENERAL.FORM_ERROR').then(function(translation){
-			ctrl.errorTranslations['error_form'] = translation;
-		});
+	function PaceController(paceService, $scope){
 		
-		this.processForm = function(){
-			if(!this.distance || !this.validateTime()){
-				$scope.setError('danger', this.errorTranslations['error_form']);
+		/* jshint validthis: true */
+		var vm = this;
+
+		// bindable members
+		vm.calculated = false;
+		vm.data = {
+			distance: null,
+			time: { hours: null, minutes: null, seconds: null }
+		};
+		vm.result = null;
+		vm.selectedDistance = '';
+		vm.processForm = processForm;
+		vm.changeDistance = changeDistance;
+		vm.resetDistance = resetDistance;
+
+		//////////////////////
+
+		function processForm(){
+			if(!vm.data.distance || !validateTime()){
+				$scope.app.setError('danger','GENERAL.FORM_ERROR');
 				return;
 			}
-			this.getResult();
-		};
+			$scope.app.getResult(vm, paceService, vm.data);
+		}
 
 		// update distance when selected from list
-		this.changeDistance = function(){
-			this.distance = parseFloat(this.selectedDistance);
-		};
+		function changeDistance(){
+			vm.data.distance = parseFloat(vm.selectedDistance);
+		}
 
 		// reset selected distance when user updates manually
-		this.resetDistance = function(){
-			this.selectedDistance = '';
-		};
+		function resetDistance(){
+			vm.selectedDistance = '';
+		}
 
-		// at least one of the three must be non-empty	
-		this.validateTime = function(){
-			return (!this.time.hours && !this.time.minutes && !this.time.seconds) ? false : true;
-		};
-
-		// gets the result using the service
-		this.getResult = function(){
-			this.calculated = false;
-
-			function fetchResult(){
-				ctrl.result = paceService.getResult(ctrl.distance, ctrl.time);
-				ctrl.calculated = true;
-			}
-			$timeout(fetchResult, 300);
-		};
+		// validates if at least one of the fields is filled in
+		function validateTime(){
+			return (!vm.data.time.hours && !vm.data.time.minutes && !vm.data.time.seconds) ? false : true;
+		}
 
 	}
 

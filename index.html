@@ -21,7 +21,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body ng-controller="AppController">
+<body ng-controller="AppController as app" ng-cloak>
     
     <div class="container"> 
 		<!-- language selection -->
@@ -29,9 +29,9 @@
 			<div class="col-sm-3 col-sm-offset-9 text-right">
 				<label for="languageSelect">{{ 'NAV.CHOOSE_LANGUAGE' | translate }}:</label>
 				<select name="languageSelect" id="languageSelect"
-					ng-options="lang.name for lang in data.availableLanguages track by lang.id"
-					ng-model="data.selectedLanguage"
-					ng-change="changeLanguage(data.selectedLanguage.id)"></select>
+					ng-options="lang.name for lang in app.data.availableLanguages track by lang.id"
+					ng-model="app.data.selectedLanguage"
+					ng-change="app.changeLanguage(app.data.selectedLanguage.id)"></select>
 			</div>
 		</div>
 	</div>
@@ -46,11 +46,11 @@
 		<nav>
 			<ul class="nav nav-pills nav-justified">
 				<li ui-sref-active="active"><a ui-sref="home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-				<li ui-sref-active="active"><a ui-sref="bmi">{{'NAV.BMI' | translate}}</a></li>
-				<li ui-sref-active="active"><a ui-sref="pace">{{'NAV.PACE' | translate}}</a></li>
-				<li ui-sref-active="active"><a ui-sref="calories">{{'NAV.CALORIES' | translate}}</a></li>
+				<li ui-sref-active="active"><a ui-sref="bmi">{{ 'NAV.BMI' | translate}}</a></li>
+				<li ui-sref-active="active"><a ui-sref="pace">{{ 'NAV.PACE' | translate}}</a></li>
+				<li ui-sref-active="active"><a ui-sref="calories">{{ 'NAV.CALORIES' | translate}}</a></li>
 				<li ui-sref-active="active"><a ui-sref="laps">{{ 'NAV.LAPS' | translate }}</a></li>
-				<li ui-sref-active="active"><a ui-sref="vdot">{{'NAV.TIME' | translate}}</a></li>
+				<li ui-sref-active="active"><a ui-sref="vdot">{{ 'NAV.VDOT' | translate}}</a></li>
 			</ul>
 		</nav>
 		<!-- main app content -->

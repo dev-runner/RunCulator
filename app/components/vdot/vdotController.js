@@ -2,59 +2,45 @@
 
 	angular.module('runculator.vdot',[]);
 
-	angular.module('runculator.vdot').controller('VdotController', ['vdotService','$timeout','$scope','$translate', VdotController]);
+	angular
+		.module('runculator.vdot')
+		.controller('VdotController', VdotController);
 
-	function VdotController(vdotService, $timeout, $scope, $translate){
+	VdotController.$inject = ['vdotService', '$scope'];
 
-		this.result = null;
-		this.calculated = false;
-		this.selectedDistance = '';
-		this.time = { hours: null, minutes: null, seconds: null };
-		this.collapsed = { easy: true, marathon: true, threshold: true, intervals: true, repetitions: true };
-		this.errorTranslations = {};
+	function VdotController(vdotService, $scope){
 
-		var ctrl = this;
+		/* jshint validthis: true */
+		var vm = this;
 
-		$translate(['GENERAL.FORM_ERROR','VDOT.ERROR_BELOW']).then(function(translations){
-			ctrl.errorTranslations['error_form'] = translations['GENERAL.FORM_ERROR'];
-			ctrl.errorTranslations['error_below'] = translations['VDOT.ERROR_BELOW'];
-		});
+		// bindable members
+		vm.calculated = false;
+		vm.collapsed = { easy: true, marathon: true, threshold: true, intervals: true, repetitions: true };
+		vm.data = {
+			selectedDistance: '',
+			time: { hours: null, minutes: null, seconds: null }
+		};
+		vm.getPace = getPace;
+		vm.processForm = processForm;
+		vm.result = null;
 
+		//////////////////////
 
-		// form processing
-		this.processForm = function(){
-			if(!this.selectedDistance || !this.validateTime()){
-				$scope.setError('danger', this.errorTranslations['error_form']);
+		function processForm(){
+			if(!vm.data.selectedDistance || !validateTime()){
+				$scope.app.setError('danger','GENERAL.FORM_ERROR');
 				return;
 			}
-			this.getResult();
-		};
+			$scope.app.getResult(vm, vdotService, vm.data);
+		}
 
-		// get vdot result
-		this.getResult = function(){
-			this.calculated = false;
-
-			function fetchResult(){
-				ctrl.result = vdotService.getResult(ctrl.selectedDistance, ctrl.time);
-				ctrl.calculated = true;
-
-				// vdot not found
-				if(!ctrl.result && ctrl.calculated){
-					$scope.setError('danger', ctrl.errorTranslations['error_below']);
-				}
-			}
-			$timeout(fetchResult, 300);
-		};
-
-		// returns pace based on distance(km) and time(s)
-		this.getPace = function(distance, timeInSeconds){
+		function getPace(distance, timeInSeconds){
 			return vdotService.getPaceInSeconds(distance, timeInSeconds);
-		};
+		}
 
-		// checks if time is provided by the user
-		this.validateTime = function(){
-			return (!this.time.hours && !this.time.minutes && !this.time.seconds) ? false : true;
-		};
+		function validateTime(){
+			return (!vm.data.time.hours && !vm.data.time.minutes && !vm.data.time.seconds) ? false : true;
+		}
 
 	}
 

@@ -5,10 +5,10 @@
 		<!-- DISTANCE (km) -->
 		<div class="form-group">
 			<div class="col-sm-9 col-sm-offset-1">
-				<label for="timeDistance">{{ 'VDOT.DISTANCE_LABEL' | translate }}</label>
+				<label for="vdotDistance">{{ 'VDOT.DISTANCE_LABEL' | translate }}</label>
 
-				<select name="distanceSelected" id="timeDistance" class="form-control"
-					ng-model="vdot.selectedDistance" ng-change="removeErrors()" required>
+				<select name="distanceSelected" id="vdotDistance" class="form-control"
+					ng-model="vdot.data.selectedDistance" ng-change="app.removeErrors()" required>
 					<option value="">{{ 'CONTROLS.CHOOSE' | translate }}</option>
 					<option value="1500m">1500 m</option>
 					<option value="3k">3 km</option>
@@ -23,19 +23,19 @@
 		
 		<!-- TIME (HH:MM:SS) -->
 		<div class="form-group">
-			<label class="col-sm-10 col-sm-offset-1" for="timeHours">{{ 'VDOT.TIME_LABEL' | translate }}</label>
+			<label class="col-sm-10 col-sm-offset-1" for="vdotHours">{{ 'VDOT.TIME_LABEL' | translate }}</label>
 			
 			<div class="col-sm-3 col-sm-offset-1">
 				<input type="number" name="hours" min="0" max="99" class="form-control text-center"
-					placeholder="HH" ng-model="vdot.time.hours" id="timeHours" ng-change="removeErrors()">
+					placeholder="HH" ng-model="vdot.data.time.hours" id="vdotHours" ng-change="app.removeErrors()">
 			</div>
 			<div class="col-sm-3">
 				<input type="number" name="minutes" min="0" max="59" class="form-control text-center"
-					placeholder="MM" ng-model="vdot.time.minutes" id="timeMinutes" ng-change="removeErrors()">
+					placeholder="MM" ng-model="vdot.data.time.minutes" id="vdotMinutes" ng-change="app.removeErrors()">
 			</div>
 			<div class="col-sm-3">
 				<input type="number" name="seconds" min="0" max="59" class="form-control text-center"
-					placeholder="SS" ng-model="vdot.time.seconds" id="timeSeconds" ng-change="removeErrors()">
+					placeholder="SS" ng-model="vdot.data.time.seconds" id="vdotSeconds" ng-change="app.removeErrors()">
 			</div>
 		</div>
 
@@ -47,9 +47,9 @@
 		</div>
 
 		<!-- ERRORS -->
-		<div class="form-group" ng-show="VDOTForm.$submitted && errors">
+		<div class="form-group" ng-show="VDOTForm.$submitted && app.errors.length">
 			<div class="col-sm-9 col-sm-offset-1">
-				<div uib-alert ng-repeat="error in errors" class="alert alert-danger" close="closeError($index)">{{ error.msg }}</div>
+				<div uib-alert ng-repeat="error in app.errors" class="alert alert-danger" close="app.closeError($index)">{{ error.msg }}</div>
 			</div>
 		</div>
 
@@ -67,9 +67,14 @@
 	</article>
 
 	<!-- VDOT result -->
-	<article ng-if="vdot.result" class="animate-if">
+	<article ng-if="vdot.result" class="animate-if" ng-switch="vdot.result">
 
-		<section ng-class="{invisible: !vdot.calculated}">
+		<section ng-class="{invisible: !vdot.calculated}" ng-switch-when="tooslow">
+			<header>
+				<h2 class="text-center text-uppercase text-danger">{{ 'VDOT.ERROR_BELOW' | translate }}</h2>
+			</header>
+		</section> 
+		<section ng-class="{invisible: !vdot.calculated}" ng-switch-default>
 		
 		<!-- VDOT value -->
 		<header>
@@ -154,7 +159,12 @@
 								</h4>
 								<p uib-collapse="vdot.collapsed.easy">{{ 'VDOT.TRAINING.TABLE.EASY_PACE' | translate }}</p>
 							</td>
-							<td><p class="lead text-center">{{ vdot.result.training_paces['easy'] | convertPace:true }}</p></td>
+							<td><p class="lead text-center">
+								{{ vdot.result.training_paces['easy']['min'] | convertPace }}
+								&ndash;
+								{{ vdot.result.training_paces['easy']['max'] | convertPace:true }}
+								</p>
+							</td>
 						</tr>
 						<tr ng-click="vdot.collapsed.marathon = !vdot.collapsed.marathon" class="clickable">
 							<td>
@@ -209,6 +219,14 @@
 										<td><strong>1000 m</strong></td>
 										<td>{{ vdot.result.training_paces['interval_1000'] | convertPace }}</td>
 									</tr>
+									<tr>
+										<td><strong>1200 m</strong></td>
+										<td>{{ vdot.result.training_paces['interval_1200'] | convertPace }}</td>
+									</tr>
+									<tr>
+										<td><strong>1 mile</strong></td>
+										<td>{{ vdot.result.training_paces['interval_1600'] | convertPace }}</td>
+									</tr>
 								</table>
 							</td>
 						</tr>
@@ -227,8 +245,16 @@
 										<td>{{ vdot.result.training_paces['reps_200'] | convertPace }}</td>
 									</tr>
 									<tr>
+										<td><strong>300 m</strong></td>
+										<td>{{ vdot.result.training_paces['reps_300'] | convertPace }}</td>
+									</tr>
+									<tr>
 										<td><strong>400 m</strong></td>
 										<td>{{ vdot.result.training_paces['reps_400'] | convertPace }}</td>
+									</tr>
+									<tr>
+										<td><strong>600 m</strong></td>
+										<td>{{ vdot.result.training_paces['reps_600'] | convertPace }}</td>
 									</tr>
 									<tr>
 										<td><strong>800 m</strong></td>
@@ -247,7 +273,7 @@
 		</section>
 		
 		<hr />
-		<a ng-click="goBack(vdot)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
+		<a ng-click="app.goBack(vdot)">&laquo; {{ 'NAV.GO_BACK' | translate }}</a>
 
 	</article>
 

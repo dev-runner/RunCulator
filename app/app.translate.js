@@ -1,8 +1,12 @@
 (function(){ 'use strict';
 
+	// Configure translation provider
+	angular.module('runculator')
+			.config(configureTranslationProvider);
+	
+	configureTranslationProvider.$inject = ['$translateProvider', 'config'];
 
-	// Configure the translation service
-	angular.module('runculator').config(['$translateProvider', function($translateProvider){
+	function configureTranslationProvider($translateProvider, config){
 
 		// load translations from files
 		$translateProvider.useStaticFilesLoader({
@@ -10,17 +14,16 @@
 			suffix: '.json'
 		});
 
-		// set pl as the default language
+		// set the default language
 		$translateProvider
-			.fallbackLanguage('pl')
-			.preferredLanguage('pl');
+			.fallbackLanguage(config.defaultLanguage)
+			.preferredLanguage(config.defaultLanguage);
 
 		// remember language
 		$translateProvider.useLocalStorage();
 
 		// set sanitize strategy
 		$translateProvider.useSanitizeValueStrategy('sanitizeParameters');
-
-	}]);
+	}
 
 })();

@@ -2,37 +2,32 @@
 	
 	angular.module('runculator.bmi', []);
 
-	angular.module('runculator.bmi')
-		.controller('BmiController', ['bmiService','$timeout','$scope','$translate', BmiController]);
+	angular
+		.module('runculator.bmi')
+		.controller('BmiController', BmiController);
 
-	function BmiController(bmiService, $timeout, $scope, $translate){
+	BmiController.$inject = ['bmiService','$scope'];
 
-		this.weight = this.height = this.result = null;
-		this.errorTranslations = {};
-		this.calculated = false;
-		var ctrl = this;
+	function BmiController(bmiService, $scope){
 
-		$translate('GENERAL.FORM_ERROR').then(function(translation){
-			ctrl.errorTranslations['error_form'] = translation;
-		});
+		/* jshint validthis: true */
+		var vm = this;
 
-		this.processForm = function(){
-			if(!this.weight || !this.height){
-				$scope.setError('danger', this.errorTranslations['error_form']);
+		// bindable members
+		vm.calculated = false;
+		vm.data = { weight: null, height: null };
+		vm.result = null;
+		vm.processForm = processForm;
+		
+		///////////////////
+
+		function processForm(){
+			if(!vm.data.weight || !vm.data.height){
+				$scope.app.setError('danger','GENERAL.FORM_ERROR');
 				return;
 			}
-			this.getResult();
-		};
-
-		this.getResult = function(){
-			this.calculated = false;
-
-			function fetchResult(){
-				ctrl.result = bmiService.getResult(ctrl.weight, ctrl.height);
-				ctrl.calculated = true;
-			}
-			$timeout(fetchResult, 300);
-		};
+			$scope.app.getResult(vm, bmiService, vm.data);
+		}
 		
 	}
 

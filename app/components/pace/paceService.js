@@ -1,18 +1,27 @@
 (function(){ 'use strict';
 
-	angular.module('runculator.pace')
-		.factory('paceService', [PaceService]);
-	
+	angular
+		.module('runculator.pace')
+		.factory('paceService', PaceService);
+
+	PaceService.$inject = [];
+
 	function PaceService(){
 
-		var o = {};
+		var service = {
+			getResult: getResult
+		};
 
-		o.getResult = function(distance, time){
+		return service;
 
-			distance = distance || 0;
-			time.hours = time.hours || 0;
-			time.minutes = time.minutes || 0;
-			time.seconds = time.seconds || 0;
+		/////////////////////////////
+
+		function getResult(data){
+
+			var distance = data.distance || 0;
+			var hours = data.time.hours || 0;
+			var minutes = data.time.minutes || 0;
+			var seconds = data.time.seconds || 0;
 
 			var result = {
 				pace: {
@@ -23,7 +32,7 @@
 			};
 
 			// calculate pace and speed
-			var timeInSeconds = time.hours*3600 + time.minutes*60 + time.seconds;
+			var timeInSeconds = (hours*3600) + (minutes*60) + seconds;
 			var paceSeconds = timeInSeconds / distance; // [s/km]
 			var speed = 3600 * distance / timeInSeconds; // [km/h]
 			
@@ -32,8 +41,8 @@
 			result.speed = Math.round(speed*1000)/1000;
 
 			return result;
-		};
-		return o;
+		}
+
 	}
-	
+
 })();

@@ -1,50 +1,71 @@
 (function(){ 'use strict';
-
+	
 	angular.module('runculator.app', []);
+	
+	angular
+		.module('runculator.app')
+		.controller('AppController', AppController);
 
-	angular.module('runculator.app')
-		.controller('AppController', ['$translate','$scope', AppController]);
+	AppController.$inject = ['$translate','$timeout','config'];
 
-	function AppController($translate, $scope){
+	function AppController($translate, $timeout, config){
 
-		var selLang = $translate.proposedLanguage() || 'pl';
+		/* jshint validthis: true */
+		var vm = this;
 
-		$scope.errors = [];
-
-		$scope.data = {
-			availableLanguages: [
-				{id: 'pl', name: 'Polski'},
-				{id: 'en', name: 'English'},
-			],
-			selectedLanguage: {id: selLang }
-		};
-
-		// changes the app language
-		$scope.changeLanguage = function(langKey){
-			$translate.use(langKey);
-		};
-		
-		$scope.setError = function(type, msg){
-			$scope.errors = [ {type: type, msg: msg} ];
-		};
-
-		$scope.addError = function(type, msg){
-			$scope.errors.push( {type: type, msg: msg} );
-		};
-
-		$scope.closeError = function(index){
-			$scope.errors.splice(index,1);
-		};
-
-		$scope.removeErrors = function(){
-			$scope.errors = [];
-		};
-
-		$scope.goBack = function(ctrl){
-			if(ctrl){
-				ctrl.result = null;
+		// bindable members:
+		vm.changeLanguage = changeLanguage;
+		vm.closeError = closeError;
+		vm.data = {
+			availableLanguages: config.availableLanguages,
+			selectedLanguage: { 
+				id: $translate.proposedLanguage() || 'pl'
 			}
 		};
+		vm.errors = [];
+		vm.goBack = goBack;
+		vm.removeErrors = removeErrors;
+		vm.setError = setError;
+		vm.getResult = getResult;
+
+		///////////////////
+
+		function changeLanguage(langKey){
+			$translate.use(langKey);
+		}
+
+		function setError(type, errorId){
+			$translate(errorId).then(function(errTranslation){
+				vm.errors = [ { type: type, msg: errTranslation } ];	
+			}, function(errId){
+				vm.errors = [ { type: type, msg: errId } ];
+			});
+		}
+
+		function closeError(index){
+			vm.errors.splice(index,1);
+		}
+
+		function removeErrors(){
+			vm.errors = [];
+		}
+
+		function goBack(whichCtrl){
+			if(whichCtrl){
+				whichCtrl.result = null;
+			}
+		}
+
+		function getResult(viewModel, service, data){
+			viewModel.calculated = false;
+
+			function fetchResult(){
+				viewModel.result = service.getResult(data);
+				viewModel.calculated = true;
+			}
+			$timeout(fetchResult, 300);
+		}
+
 	}
 
 })();

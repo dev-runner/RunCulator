@@ -1,15 +1,24 @@
 (function(){ 'use strict';
 
-	angular.module('runculator.cal')
-		.factory('calService', [CalService]);
+	angular
+		.module('runculator.cal')
+		.factory('calService', CalService);
+
+	CalService.$inject = [];
 
 	function CalService(){
 
-		var o = {};
-
 		const RUNNING_CAL_FACTOR = 1.036; // [kcal/kg/km]
 
-		o.getResult = function(distance, weight, time){
+		var service = {
+			getResult: getResult
+		};
+
+		return service;
+
+		/////////////////////////
+
+		function getResult(data){
 
 			var result = {
 				total_calories_burned: null,
@@ -18,13 +27,13 @@
 			};
 			var total_seconds = 0;
 
-			distance = distance || 0;
-			weight = weight || 0;
+			var distance = data.distance || 0;
+			var weight = data.weight || 0;
+			var hours = data.time.hours || 0;
+			var minutes = data.time.minutes || 0;
+			var seconds = data.time.seconds || 0;
 			
-			time.hours = time.hours || 0;
-			time.minutes = time.minutes || 0;
-			time.seconds = time.seconds || 0;
-			total_seconds = time.hours*3600 + time.minutes*60 + time.seconds;
+			total_seconds = (hours * 3600) + (minutes * 60) + seconds;
 
 			// total calories
 			result.total_calories_burned = Math.round(RUNNING_CAL_FACTOR * distance * weight);
@@ -36,9 +45,8 @@
 			result.calories_per_km = Math.round(result.total_calories_burned / distance);
 
 			return result;
-		};
-
-		return o;
+		}
+		
 	}
 
 })();

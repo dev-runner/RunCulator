@@ -1,12 +1,12 @@
 (function(){ 'use strict';
+	
+	angular
+		.module('runculator.app')
+		.directive('updateTitle', updateTitleDirective);
 
+	updateTitleDirective.$inject = ['$rootScope','$timeout','$translate','$state','config'];
 
-	angular.module('runculator.app').directive('updateTitle',
-		['$rootScope','$timeout','$translate','$state','appConfig', updateTitleDirective]);
-
-
-	// self-updating page title
-	function updateTitleDirective($rootScope, $timeout, $translate, $state, appConfig){
+	function updateTitleDirective($rootScope, $timeout, $translate, $state, config){
 
 		return {
 			restrict: 'A',
@@ -16,7 +16,7 @@
 				$rootScope.$on('$stateChangeSuccess', function(event, toState){
 
 					var selectedLang = $translate.use();
-					var title = appConfig.appName;
+					var title = config.appName;
 
 					if(toState.data && toState.data.pageTitle){
 						title += ' | ' + toState.data.pageTitle[selectedLang];
@@ -33,7 +33,7 @@
 				$rootScope.$on("$translateChangeSuccess", function(){
 					
 					var selectedLang = $translate.use();
-					var title = appConfig.appName;
+					var title = config.appName;
 
 					if($state.current.data && $state.current.data.pageTitle){
 						title += ' | ' + $state.current.data.pageTitle[selectedLang];

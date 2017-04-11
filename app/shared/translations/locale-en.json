@@ -1,26 +1,114 @@
-{
+{  
    "GENERAL": {
-      "HTML_LANG": "en_EN",
+     "HTML_LANG":"en_EN",
       "DESCRIPTION": "Calculators for runners",
-      "FORM_ERROR": "Please fill in all form fields."
+      "FORM_ERROR": "Please fill in all fields."
+   },
+   "CONTROLS": {
+      "CHOOSE":"Select...",
+      "HALF_MARATHON":"Half marathon",
+      "MARATHON":"Marathon"
    },
    "NAV": {
-      "BMI":"BMI Calculator",
-      "PACE": "Pace Calculator",
-      "CALORIES":"Calories Calculator",
-      "TIME":"Time prediction",
-      "ABOUT":"About",
-      "CHOOSE_LANGUAGE": "Choose language"
+      "BMI":"BMI calculator",
+      "PACE":"Pace calculator",
+      "CALORIES":"Calorie calculator",
+      "LAPS":"Split time calculator",
+      "VDOT":"VDOT calculator",
+      "CHOOSE_LANGUAGE":"Change language",
+      "GO_BACK":"Back",
+      "SEE_MORE":"See more"
    },
    "HOME": {
-      "TITLE":"Hello",
-      "TEXT":"(English) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      "LEAD":"<p class=\"lead\">Hello,<br /><strong>RunCulator</strong> is a simple application containing a set of essential calculators for runners. It is an Open Source project under the <a target=\"_blank\" href=\"https://opensource.org/licenses/MIT\">MIT</a> license, built completely out of love for running &#9786; The source code is hosted on my <a target=\"_blank\" href=\"https://github.com/dev-runner/RunCulator\">GitHub</a>. Please enjoy doing math with burned calories, running paces and speeds!</p>"
    },
    "BMI": {
-      "TITLE":"Calculate your BMI",
+      "CALCULATOR_NAME":"BMI Calculator",
+      "HEIGHT_LABEL":"Your height (centimeters):",
       "HEIGHT":"Height [cm]",
       "WEIGHT":"Weight [kg]",
+      "WEIGHT_LABEL":"Your weight (kilograms):",
       "SUBMIT":"Calculate BMI",
-      "ERROR": "Fill in all form fields."
+      "RESULT":"Your BMI is",
+      "TITLE":"Calculate your BMI",
+      "LEAD":"<p>This calculator enables you to calculate your BMI (Body Mass Index)</i> and provides additional tips on running.</p>",
+      "ABOUT":"<hr /><h2 class=\"text-uppercase\"><span class=\"glyphicon glyphicon-education\" aria-hidden=\"true\"></span> What is BMI?</h2><p>BMI is a measure of body fat based on body weight in kilograms divided by height in meters squared. BMI applies only to adults and must not be used for children.</p><p>The calculation of BMI is very simple, yet it <strong>does not account the individual's physique</strong>. In practice, a person with high muscle mass might have a very high BMI value indicating obesity, while having very low percentage of body fat. On the other hand, the BMI values amongst athletes often indicate that the person is underweight. Therefore BMI is not a very precise measure of body fat or resulting health risks. Other measures of body fat, such as skinfold thicknesses, bioelectrical impedance, underwater weighing and dual energy X-ray absorption, maybe more accurate than BMI.</p><hr /><h2 class=\"text-uppercase\">BMI measurement and running</h2><p><strong>Your body weight is of great importance for long-distance running</strong>. Each excessive kilogram of body mass causes your muscles to work harder and your skeletal system to sustain greater forces. Try to run while holding 1-kilogram weights in hands to see the impact of excessive weight on speed and lightness of running. Laws of physics are everywhere the same - lighter means faster. Not without reason, F1 cars are built with the lightest and most durable materials known to the mankind. Therefore, if you think of improving your running results, remember that keeping your body weight low plays an important role. <strong>Most professional long-distance runners have BMI measurement below 22</strong> and frequently below norm. For instance, marathon world record-holder Paula Radcliffe, being 173 cm of height and 54 kg of weight has a BMI measurement of 18.04, which indicates weight below norm.</p><p><strong>BMI values are completely different amongst sprinters</strong> They usually have BMI measurement close to the upper limit or even above the limit. This is caused by very high muscle mass and simultaneous low body fat. For example, the fastest man on Earth – Usain Bolt, who has 195 cm of height and weights 92 kg has a BMI value of 24.19 and is just a few kilograms away from being overweight according to the BMI scale.</p>",
+	  "DESCRIPTION_BELOW":"<p class=\"lead text-center\">Your BMI value indicates <strong class=\"bg-info bmi-scale\">UNDERWEIGHT</strong></p><hr /><p>If you don't do any sports professionaly, you should see your general practitioner as soon as possible. Such low body weight without physical activities <strong>is not a sign of good healh!</strong></p><hr /><p>Conversely, if you train running or other endurance sports on a high level, <strong>your low BMI value is completely justified</strong>. Professional long-distance runners very often have BMI indicating underweight, but it's not a sign of pathological emaciation or starvation. Low BMI values are desirable amongst long-distance runners.</p><p>While having low BMI factor, you can do all types of running workouts since your movement system is not subject to overstrainig. You can also use running shoes with less cushioning or even minimalist shoes.</p>",
+      "DESCRIPTION_NORMAL":"<p class=\"lead text-center\">Your BMI value indicates <strong class=\"bg-success bmi-scale\">NORMAL WEIGHT</strong></p><hr /><p>If you manage to keep this weight without regular physical activity, it means that your diet is healthy and balanced properly. You can congratulate yourself, since nowadays it's mostly the active people who have BMI in this range.</p><hr /><p>Having BMI value <strong>below 23 bodes very well for your running development</strong> – it is the BMI of most of the top long-distance runners. You can apply all kinds of running workouts without being concerned about any injuries or overstraining. You can also run in less cushioned running shoes. If you gain a few kilograms of weight, you don't need to change your diet drastically. Increasing the intensity or volume of workouts should be enough for you to get back in shape.</p><hr /><p>However, if your BMI is in the range of <strong>23-25, you must be very careful about doing more ambitious running workouts</strong>. It's recommended that you first lose some weight by doing long easy runs while wearing well-cushioned shoes. You should avoid landing on the ball of foot when running. You should also watch yourself not to drop to the &quot;overweight&quot; compartment.</p>",
+      "DESCRIPTION_ABOVE":"<p class=\"lead text-center\">Your BMI value indicates <strong class=\"bg-warning bmi-scale\">EXCESS WEIGHT</strong></p><hr /><p>You shouldn't do any advanced running workouts or workouts of high distance volume. <strong>Walk/runs or light jogging are recommended</strong>, which will help you get rid of excessive body fat. You can also try other sports like <strong>swimming, cycling, nordic walking or walking on stairs</strong>, that will burn a lot of calories without putting a strain on your joints and bones.</p><p>After normalising your weight you can gradually introduce longer and faster runs to your workout plan. Your running shoes should have a <strong>good cushioning system</strong>.</p>",
+      "DESCRIPTION_OBESE":"<p class=\"lead text-center\">Your BMI value indicates <strong class=\"bg-danger bmi-scale\">OBESITY</strong></p><hr /><p><strong>Running is not an option for you</strong>. Your joints and bones are subject to severe overstrains. If you don't wish to harm yourself, you should first normalise your body weight by introducing healthy, well-balanced diet. There is no short cut from obesity to running!</p>"
+   },
+   "PACE": {
+      "CALCULATOR_NAME":"Running pace calculator",
+      "TITLE":"Calculate your running pace",
+      "LEAD":"<p>This calculator will help you determine how fast your pace per kilometer should in order to finish certain distance or race in a desired time.</p>",
+      "ABOUT":"",
+      "DISTANCE":"Distance",
+      "DISTANCE_LABEL":"Select or enter distance",
+      "TIME_LABEL":"Desired result (HH:MM:SS):",
+      "SUBMIT":"Calculate pace",
+      "RESULT_PACE":"Your running pace should be",
+      "RESULT_SPEED":"Which is equivalent to the speed of"
+   },
+   "CAL": {
+      "CALCULATOR_NAME":"Burned calorie calculator",
+      "TITLE":"Calculate burned calories",
+      "LEAD":"<p>This calories calculator will show you how many kilocalories (1kcal = 1000 calories) your body uses up while running on the given distance.</p>",
+      "ABOUT":"<hr /><h2 class=\"text-uppercase\"><span class=\"glyphicon glyphicon-education\" aria-hidden=\"true\"></span> Caloric expenditure when running</h2><p>Running is one of the <strong>most effective ways of burning calories.</strong>. Unfortunately, it is not possible to tell precisely how many calories you burn, since the exact amount is dependent on multiple factors (e.g. type of terrain, atmospheric pressure, well-being, fitness level). However, we can closely estimate the caloric expenditure based on distance ran and weight of a runner.</p><p>According to the intuition and the laws of physics, <strong>the longer the distance the more calories will be burned</strong>. It is also worth noting that the speed of running is not important. 10 kilometers in 35 minutes and 10 kilometers in 1 hour will cause the same amount of energy to be used up by the same runner. <strong>The heavier the runner, the more calories will be burned.</strong></p>",
+      "DISTANCE":"Distance [km]",
+      "DISTANCE_LABEL":"Enter distance (kilometers):",
+      "WEIGHT":"Weight [kg]",
+      "WEIGHT_LABEL":"Your weight (kilograms):",
+      "TIME_LABEL":"Running duration (HH:MM:SS):",
+      "SUBMIT":"Calculate calories",
+      "RESULT":"You have burned",
+      "DESCRIPTION":"<p class=\"lead text-center\">At this pace your calorie burn rate is <strong class=\"bg-info cal-rate\">{{ calories_per_km }}</strong> kcal/km and <strong class=\"bg-info cal-rate\">{{ calories_per_hour }}</strong> kcal/h.</p>"
+   },
+   "LAPS": {
+      "CALCULATOR_NAME":"Split time calculator",
+      "TITLE":"Calculate split time",
+      "LEAD":"<p>This calculator will help you calculate split time based on the running pace and split distance.</p>",
+      "ABOUT":"",
+      "PACE_LABEL":"Running pace (MM:SS)/km",
+      "DISTANCE_LABEL":"Split distance (meters)",
+      "DISTANCE":"Distance [m]",
+      "SUBMIT":"Calculate split time",
+      "RESULT":"You should run this split in"
+   },
+   "VDOT": {
+      "CALCULATOR_NAME":"Calculator of training paces and race performances",
+      "TITLE":"Find training paces and race performances",
+      "LEAD":"<p>This calculator will help you find optimal training paces and estimated race performances on most popular distances. The calculator is based on the famous <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Jack_Daniels_(coach)\">Jack Daniels'</a> VDOT number.</p>",
+      "ABOUT":"<hr /><h2 class=\"text-uppercase\"><span class=\"glyphicon glyphicon-education\" aria-hidden=\"true\"></span> What is VDOT number?</h2><p><strong>Dr. Jack Daniels</strong> who is acknowledged as one of the world's best running coaches, over 30 years ago came up with the VDOT number <strong>- a measure of your current running ability</strong>. One of the greatest Daniels' achievements is creation of a clear, consistent and logical training system used by runners all around the world - both amateurs and professional runners.</p><p>The VDOT number is based on your <strong>recent race performance</strong>. The number helps you determine your current fitness level and enables to estimate equivalent race times as well as optimal training paces.</p><p>How fast should I run 400-meter laps? What is the optimal pace of my long easy runs? My recent PB for 10k is 40 minutes, what is the result I can expect during a half marathon? - These are some of the most frequent questions asked by runners all around the globe. The VDOT tables will help you answer those questions, <strong>train wisely and avoid overtraining</strong>.</p>",
+      "DISTANCE_LABEL":"Race distance:",
+      "TIME_LABEL":"Recent best time (HH:MM:SS):",
+      "SUBMIT":"Calculate",
+      "ERROR_BELOW":"The result is below the VDOT scale.",
+      "RESULT":"Your VDOT number is",
+      "RACING": {
+         "TAB":"Race performances",
+         "DESCRIPTION":"Table below shows estimated race performances for given distances. The last column contains running pace needed to achieve the result.",
+         "TABLE": {
+            "DISTANCE": "Distance",
+            "TIME": "Time",
+            "PACE": "Pace",
+            "HALF_MARATHON": "Half marathon",
+            "MARATHON": "Marathon"
+         }
+      },
+      "TRAINING": {
+         "TAB": "Training paces",
+         "DESCRIPTION": "Table below contains optimal training paces for each training zone. It is crucial to train at your current VDOT level, not at your target VDOT level. Training at the VDOT paces that are beyond your current fitness level increases the risk of injury and overtraining.",
+         "TABLE": {
+            "TRAINING_ZONE":"Training zone",
+            "PACE":"Pace",
+            "EASY_PACE":"This refers to slow running at the conversational pace, in the range of 65-79% of HRmax. In this training zone the speed of running is not important, but rather the duration of running - the longer the better. Main goal of easy running is to increase blood supply for muscles and increased ability to process oxygen through the cardiovascular system. Easy running also increases the number of mitochondria within the muscle cells, which improves the fitness level and makes your body sustain longer runs. Easy running is a solid base for more intensive running workouts.",
+            "MARATHON_PACE":"It is a steady run at marathon pace, in the range of 80-90% of HRmax. This is the last intensity at which the amount of oxygen delivered to your body is equal to the amount used, which does not cause accumulation of blood lactate. This training can be performed as a steady run or long repeats (e.g. 2x6 km, 2x8 km), but no more than 25 km. This type of workout is for those training for a marathon or as an alternative for easy runs.",
+            "THRESHOLD_PACE":"Threshold training is running at intensity in the range of 88-92% HRmax. It is the maximum running pace at which the production of blood lactate is equal to the speed of its removal. It is the intensity which you should be able to sustain for about an hour in race conditions. For very fast runners it is the half-marathon pace, and for slower runners - race pace for 10-15k. Threshold training should be performed in a form of a steady 5-6 km run (approximately 20 minutes) or repeated runs of 5-15 minutes each, with 1-3 minutes rest. This is the primary type of training for improving your endurance. The goal of threshold runs is training the body to quickly, more officiently remove blood lactate. Running faster will not cause any beneficial effect, but might prolong the recovery time.",
+            "INTERVALS":"Intervals are repeated fast runs at the intensity of 98-100% of HRmax, lasting no longer than 5 minutes with active/jog recoveries of similar duration. The pace is similar to the 5k race pace. The purpose of interval training is stressing your aerobic power (VO2max). During the intervals you should run at the maximum aerobic potential - i.e. 100% VO2max.",
+            "REPETITIONS":"Reps are very fast runs at the intensity exceeding your VO2max - the pace is similar to the race pace for 1500m or 1 mile. These are rather short, but very fast work bouts with relatively long recovery bouts (example: 90s fast / recovery: 3-5 minutes). The recoveries between repetitions should be long enough, so that you are able to run each repetion at the same speed. Main purpose of repetition training is improvement of speed and economy. Uphills are also a type of repetition training."
+         }
+      }
    }
+
 }
