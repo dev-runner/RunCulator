@@ -25,6 +25,7 @@
 			appName: "RunCulator",
 			authorName: "Przemek Jazlo",
 			authorEmail: "przemek@devrunner.pl",
+			authorWebsite: "http://devrunner.pl/",
 			availableLanguages: [
 				{ id: 'pl', name: 'Polski' },
 				{ id: 'en', name: 'English' },
@@ -54,6 +55,7 @@
 
 		// set meta tags
 		$rootScope.appName = config.appName;
+		$rootScope.website = config.authorWebsite;
 		$rootScope.author = config.authorName + " <" + config.authorEmail + ">";
 	}
 

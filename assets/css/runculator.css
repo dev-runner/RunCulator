@@ -189,3 +189,15 @@ nav {
 	transition: all linear .3s;
 	opacity: 0;
 }
+
+.footer-logo {
+	display: block;
+	width: 170px;
+	height: 24px;
+	background: no-repeat url('../img/logo.png') 0 0;
+	text-indent: -99999px;
+	margin-bottom: 13px;
+}
+.footer-logo:hover{
+	background-position: 0 -24px;
+}
