@@ -1,7 +1,8 @@
 (function(){ 'use strict';
 
-	// configure app routes	
-	angular.module('runculator').config(configureRoutes);
+	angular.module('runculator.core.routing', ['ui.router']);
+	
+	angular.module('runculator.core.routing').config(configureRoutes);
 
 	configureRoutes.$inject = ['$stateProvider','$urlRouterProvider'];
 
@@ -78,5 +79,7 @@
 		$urlRouterProvider.otherwise('/');
 		
 	}
+
+
 
 })();

@@ -1,7 +1,10 @@
 (function(){ 'use strict';
 
-	angular
-		.module('runculator.vdot')
+	angular.module('runculator.vdot.service', [
+		'runculator.vdot.tables'
+	]);
+
+	angular.module('runculator.vdot.service')
 		.factory('vdotService', VdotService);
 
 	VdotService.$inject = ['vdotTable','vdotTrainingPaces'];

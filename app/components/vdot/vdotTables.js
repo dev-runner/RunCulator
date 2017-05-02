@@ -1,8 +1,12 @@
 (function(){ 'use strict';
 
-/* Race times (in seconds) */
-angular
-	.module('runculator.vdot')
+// declate module
+angular.module('runculator.vdot.tables', []);
+
+/**
+   * Race times (in seconds)
+   */
+angular.module('runculator.vdot.tables')
 	.constant('vdotTable', {
 		"30": {
 			"1500m": 510,
@@ -512,8 +516,7 @@ angular
 
 
 /* Training paces (mm:ss) /km */
-angular
-	.module('runculator.vdot')
+angular.module('runculator.vdot.tables')
 	.constant('vdotTrainingPaces', {
 		"30": {
 			easy: {

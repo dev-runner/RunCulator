@@ -77,28 +77,48 @@
 	<script src="app/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
-	<!-- The app -->	
+	<!-- root module -->	
 	<script src="app/app.module.js"></script>
-	<script src="app/app.translate.js"></script>
-	<script src="app/app.routes.js"></script>
 	
-	<!-- App controllers -->
+	<!-- core -->
+	<script src="app/shared/core/coreModule.js"></script>
+	<script src="app/shared/core/coreRouting.js"></script>
+	<script src="app/shared/core/coreTranslate.js"></script>
+	<script src="app/shared/core/coreConfig.js"></script>
+
+	<!-- directives -->
+	<script src="app/shared/directives/directivesModule.js"></script>	
+	<script src="app/shared/directives/updateTitleDirective.js"></script>
+
+	<!-- filters -->
+	<script src="app/shared/filters/filtersModule.js"></script>
+	<script src="app/shared/filters/paceFormat.js"></script>
+	<script src="app/shared/filters/timeFormat.js"></script>
+	<script src="app/shared/filters/convertPace.js"></script>
+	<script src="app/shared/filters/htmlSafe.js"></script>
+
+	<!-- app -->
+	<script src="app/shared/app/appModule.js"></script>
 	<script src="app/shared/app/appController.js"></script>
-	<script src="app/shared/app/appFilter.js"></script>
-	<script src="app/shared/app/appDirective.js"></script>
+	
 	<!-- bmi -->
+	<script src="app/components/bmi/bmiModule.js"></script>
 	<script src="app/components/bmi/bmiController.js"></script>
 	<script src="app/components/bmi/bmiService.js"></script>
 	<!-- pace -->
+	<script src="app/components/pace/paceModule.js"></script>
 	<script src="app/components/pace/paceController.js"></script>
 	<script src="app/components/pace/paceService.js"></script>
 	<!-- calories -->
+	<script src="app/components/calories/caloriesModule.js"></script>
 	<script src="app/components/calories/caloriesController.js"></script>
 	<script src="app/components/calories/caloriesService.js"></script>
 	<!-- laps -->
+	<script src="app/components/laps/lapsModule.js"></script>
 	<script src="app/components/laps/lapsController.js"></script>
 	<script src="app/components/laps/lapsService.js"></script>
 	<!-- vdot -->
+	<script src="app/components/vdot/vdotModule.js"></script>
 	<script src="app/components/vdot/vdotController.js"></script>
 	<script src="app/components/vdot/vdotService.js"></script>
 	<script src="app/components/vdot/vdotTables.js"></script>

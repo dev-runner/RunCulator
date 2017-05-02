@@ -1,11 +1,8 @@
 (function(){ 'use strict';
 
-	angular
-		.module('runculator.laps')
+	angular.module('runculator.laps.service',[])
 		.factory('lapsService', LapsService);
 		
-	LapsService.$inject = [];
-
 	function LapsService(){
 
 		var service = {

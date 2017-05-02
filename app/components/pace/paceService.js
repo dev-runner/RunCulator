@@ -1,11 +1,8 @@
 (function(){ 'use strict';
 
-	angular
-		.module('runculator.pace')
+	angular.module('runculator.pace.service', [])
 		.factory('paceService', PaceService);
-
-	PaceService.$inject = [];
-
+		
 	function PaceService(){
 
 		var service = {

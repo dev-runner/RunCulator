@@ -1,9 +1,6 @@
 (function(){ 'use strict';
 
-	angular.module('runculator.cal', []);
-
-	angular
-		.module('runculator.cal')
+	angular.module('runculator.cal')
 		.controller('CaloriesController', CaloriesController);
 
 	CaloriesController.$inject = ['calService','$scope'];

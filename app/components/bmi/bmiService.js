@@ -1,9 +1,14 @@
 (function(){ 'use strict';
 
-	angular
-		.module('runculator.bmi')
+	// declate a module and dependencies
+	angular.module('runculator.bmi.service', [
+		'pascalprecht.translate'
+	]);
+
+	// register service on the module
+	angular.module('runculator.bmi.service')
 		.factory('bmiService', BmiService);
-		
+	
 	BmiService.$inject = ['$translate'];
 
 	function BmiService($translate){

@@ -1,9 +1,6 @@
 (function(){ 'use strict';
-	
-	angular.module('runculator.pace',[]);
 
-	angular
-		.module('runculator.pace')
+	angular.module('runculator.pace')
 		.controller('PaceController', PaceController);
 
 	PaceController.$inject = ['paceService','$scope'];

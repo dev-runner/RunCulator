@@ -1,9 +1,6 @@
 (function(){ 'use strict';
 
-	angular.module('runculator.laps', []);
-
-	angular
-		.module('runculator.laps')
+	angular.module('runculator.laps')
 		.controller('LapsController', LapsController);
 
 	LapsController.$inject = ['lapsService','$scope'];

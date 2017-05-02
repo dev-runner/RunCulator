@@ -1,14 +1,12 @@
 (function(){ 'use strict';
-	
-	angular.module('runculator.app', []);
-	
-	angular
-		.module('runculator.app')
+
+	// register controller on the module
+	angular.module('runculator.app')
 		.controller('AppController', AppController);
 
-	AppController.$inject = ['$translate','$timeout','config'];
+	AppController.$inject = ['$translate','$timeout','runculatorConfig'];
 
-	function AppController($translate, $timeout, config){
+	function AppController($translate, $timeout, runculatorConfig){
 
 		/* jshint validthis: true */
 		var vm = this;
@@ -17,7 +15,7 @@
 		vm.changeLanguage = changeLanguage;
 		vm.closeError = closeError;
 		vm.data = {
-			availableLanguages: config.availableLanguages,
+			availableLanguages: runculatorConfig.availableLanguages,
 			selectedLanguage: { 
 				id: $translate.proposedLanguage() || 'pl'
 			}

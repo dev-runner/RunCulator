@@ -1,9 +1,6 @@
 (function(){ 'use strict';
 
-	angular.module('runculator.vdot',[]);
-
-	angular
-		.module('runculator.vdot')
+	angular.module('runculator.vdot')
 		.controller('VdotController', VdotController);
 
 	VdotController.$inject = ['vdotService', '$scope'];

@@ -1,44 +1,28 @@
 (function(){ 'use strict';
 
-	// app dependencies
-	const deps = [
-		'ui.bootstrap',
-		'ui.router',
-		'pascalprecht.translate',
-		'ngAnimate',
-		'ngTouch',
-		'ngCookies',
-		'ngSanitize',
+	// root app module and dependencies
+	angular.module('runculator', [
+
+		// shared modules
+		'runculator.core',
+		'runculator.directives',
+		'runculator.filters',
+
+		// feature areas
 		'runculator.app',
 		'runculator.bmi',
 		'runculator.pace',
 		'runculator.cal',
 		'runculator.laps',
 		'runculator.vdot'
-	];
-
-	// root app module and dependencies
-	angular.module('runculator', deps);
-
-	// app configuration
-	angular.module('runculator').constant('config', {
-			appName: "RunCulator",
-			authorName: "Przemek Jazlo",
-			authorEmail: "przemek@devrunner.pl",
-			authorWebsite: "http://devrunner.pl/",
-			availableLanguages: [
-				{ id: 'pl', name: 'Polski' },
-				{ id: 'en', name: 'English' },
-			],
-			defaultLanguage: 'pl'
-	});
+	]);
 
 
 	angular.module('runculator').run(runBlock);
 
-	runBlock.$inject = ['$rootScope','$translate','config'];
+	runBlock.$inject = ['$rootScope','$translate','runculatorConfig'];
 
-	function runBlock($rootScope, $translate, config){
+	function runBlock($rootScope, $translate, runculatorConfig){
 		
 		// update the html language attribute on language change
 		$rootScope.language = $translate.use();
@@ -54,9 +38,9 @@
 		});
 
 		// set meta tags
-		$rootScope.appName = config.appName;
-		$rootScope.website = config.authorWebsite;
-		$rootScope.author = config.authorName + " <" + config.authorEmail + ">";
+		$rootScope.appName = runculatorConfig.appName;
+		$rootScope.website = runculatorConfig.authorWebsite;
+		$rootScope.author = runculatorConfig.authorName + " <" + runculatorConfig.authorEmail + ">";
 	}
 
 })();

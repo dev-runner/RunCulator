@@ -1,10 +1,7 @@
 (function(){ 'use strict';
 
-	angular
-		.module('runculator.cal')
+	angular.module('runculator.cal.service', [])
 		.factory('calService', CalService);
-
-	CalService.$inject = [];
 
 	function CalService(){
 

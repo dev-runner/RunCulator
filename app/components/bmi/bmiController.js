@@ -1,9 +1,7 @@
 (function(){ 'use strict';
 	
-	angular.module('runculator.bmi', []);
-
-	angular
-		.module('runculator.bmi')
+	// register controller on the module
+	angular.module('runculator.bmi')
 		.controller('BmiController', BmiController);
 
 	BmiController.$inject = ['bmiService','$scope'];
@@ -28,7 +26,7 @@
 			}
 			$scope.app.getResult(vm, bmiService, vm.data);
 		}
-		
+
 	}
 
 })();
