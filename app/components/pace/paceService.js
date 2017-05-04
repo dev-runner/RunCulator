@@ -16,9 +16,9 @@
 		function getResult(data){
 
 			var distance = data.distance || 0;
-			var hours = data.time.hours || 0;
-			var minutes = data.time.minutes || 0;
-			var seconds = data.time.seconds || 0;
+			var hours = (data.time && data.time.hours) || 0;
+			var minutes = (data.time && data.time.minutes) || 0;
+			var seconds = (data.time && data.time.seconds) || 0;
 
 			var result = {
 				pace: {

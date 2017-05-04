@@ -26,19 +26,19 @@
 
 			var distance = data.distance || 0;
 			var weight = data.weight || 0;
-			var hours = data.time.hours || 0;
-			var minutes = data.time.minutes || 0;
-			var seconds = data.time.seconds || 0;
+			var hours = (data.time && data.time.hours) || 0;
+			var minutes = (data.time && data.time.minutes) || 0;
+			var seconds = (data.time && data.time.seconds) || 0;
 			
 			total_seconds = (hours * 3600) + (minutes * 60) + seconds;
 
-			// total calories
+			// total calories burned when running
 			result.total_calories_burned = Math.round(RUNNING_CAL_FACTOR * distance * weight);
 			
-			// calories per hour
+			// calories burned per hour
 			result.calories_per_hour = Math.round(3600 * result.total_calories_burned / total_seconds);
 
-			// calories per km
+			// calories burned per km
 			result.calories_per_km = Math.round(result.total_calories_burned / distance);
 
 			return result;

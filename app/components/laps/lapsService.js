@@ -1,6 +1,6 @@
 (function(){ 'use strict';
 
-	angular.module('runculator.laps.service',[])
+	angular.module('runculator.laps.service', [])
 		.factory('lapsService', LapsService);
 		
 	function LapsService(){
@@ -16,8 +16,8 @@
 		function getResult(data){
 
 			var distance = data.distance || 0;
-			var minutes = data.pace.minutes || 0;
-			var seconds = data.pace.seconds || 0;
+			var minutes = (data.pace && data.pace.minutes) || 0;
+			var seconds = (data.pace && data.pace.seconds) || 0;
 			
 			var result = {
 				hours: 0,

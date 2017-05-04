@@ -39,6 +39,8 @@
 
 		// returns pace for given distance and time [s/km]
 		function getPaceInSeconds(distance, timeInSeconds){
+			distance = distance || 0;
+			timeInSeconds = timeInSeconds || 0;
 			return Math.floor(timeInSeconds/distance);
 		}
 
@@ -46,9 +48,9 @@
 		function getResult(data){
 
 			var distance = data.selectedDistance;
-			var hours = data.time.hours || 0;
-			var minutes = data.time.minutes || 0;
-			var seconds = data.time.seconds || 0;
+			var hours = (data.time && data.time.hours) || 0;
+			var minutes = (data.time && data.time.minutes) || 0;
+			var seconds = (data.time && data.time.seconds) || 0;
 
 			var result = {
 				vdot_value: null,
