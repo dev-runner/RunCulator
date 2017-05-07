@@ -1,2 +1,9 @@
 # RunCulator
-Simple calculator for runners. All code is made available under MIT license.
+
+A simple set of calculators for runners.
+
+## Installation
+
+## Frameworks
+
+## License information
