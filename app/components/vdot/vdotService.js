@@ -59,7 +59,7 @@
 			};
 
 			var timeInSeconds = (hours*3600) + (minutes*60) + seconds;
-			var VDOT = this.getVDOT(distance, timeInSeconds);
+			var VDOT = getVDOT(distance, timeInSeconds);
 
 			if(VDOT){
 				result.vdot_value = VDOT;

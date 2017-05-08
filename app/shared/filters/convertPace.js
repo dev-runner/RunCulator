@@ -1,7 +1,7 @@
 (function(){ 'use strict';
 
 	angular.module('runculator.filters.convertPace', [])
-		.filter('convertPace', convertPaceFilter)
+		.filter('convertPace', convertPaceFilter);
 
 
 	/**

@@ -190,13 +190,21 @@ nav {
 	opacity: 0;
 }
 
+/* AUTHOR FOOTER */
+.author-foot {
+	line-height: 24px;
+	height: 24px;
+	font-size: 0.85em;
+	color: #d2d2d2;
+	margin: 0 auto;
+	text-align: center;
+}
 .footer-logo {
-	display: block;
+	display: inline-block;
 	width: 170px;
 	height: 24px;
 	background: no-repeat url('../img/logo.png') 0 0;
 	text-indent: -99999px;
-	margin-bottom: 13px;
 }
 .footer-logo:hover{
 	background-position: 0 -24px;

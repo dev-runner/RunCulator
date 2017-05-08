@@ -10,11 +10,13 @@
     "grunt-bower-task": "^0.5.0",
     "grunt-cli": "^1.2.0",
     "grunt-concat": "^0.1.6",
+    "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-compress": "^1.4.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-uglify": "^2.3.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-html2js": "^0.3.8",
     "grunt-karma": "^2.0.0",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
@@ -23,7 +25,7 @@
     "karma-chrome-launcher": "^0.2.3",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
-    "protractor": "^3.2.2"
+    "karma-phantomjs-launcher": "^1.0.4"
   },
   "scripts": {
     "postinstall": "bower install",
@@ -33,9 +35,6 @@
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
     "preupdate-webdriver": "npm install",
-    "update-webdriver": "webdriver-manager update",
-    "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js",
-    "update-index-async": "node -e \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/bower_components/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
+    "update-webdriver": "webdriver-manager update"
   }
 }

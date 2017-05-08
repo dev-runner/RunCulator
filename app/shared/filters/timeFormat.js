@@ -1,7 +1,7 @@
 (function(){ 'use strict';
 
 	angular.module('runculator.filters.timeFormat', [])
-		.filter('timeFormat', timeFormatFilter)
+		.filter('timeFormat', timeFormatFilter);
 
 	/**
 	  * Converts from seconds to hh:mm:ss

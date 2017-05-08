@@ -9,7 +9,7 @@
 
 		// load translations from files
 		$translateProvider.useStaticFilesLoader({
-			prefix: 'app/shared/translations/locale-',
+			prefix: 'assets/translations/locale-',
 			suffix: '.json'
 		});
 

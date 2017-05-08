@@ -1,7 +1,9 @@
 (function(){ 'use strict';
 
-	angular.module('runculator.core.routing', ['ui.router']);
-	
+	angular.module('templates-dist', []);
+
+	angular.module('runculator.core.routing', ['ui.router','templates-dist']);
+
 	angular.module('runculator.core.routing').config(configureRoutes);
 
 	configureRoutes.$inject = ['$stateProvider','$urlRouterProvider'];

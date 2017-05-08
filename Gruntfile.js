@@ -13,7 +13,7 @@
 					options: {
 						install: true,
 						copy: false,
-						targetDir: './app/libs',
+						targetDir: './libs',
 						cleanTargetDir: true
 					}
 				}
@@ -21,7 +21,7 @@
 
 			// check code with jshint
 			jshint: {
-				files: ['Gruntfile.js', 'karma.conf.js', 'app/app/*.js' ]
+				files: ['Gruntfile.js', 'karma.conf.js', 'app/**/*.js' ]
 			},
 
 			// run unit tests
@@ -38,14 +38,31 @@
 				}
 			},
 
+			// cache html templates in js
+			html2js: {
+				options: {
+					base: './'
+				},
+				dist: {
+					src: ['app/**/*.html'],
+					dest: 'tmp/app.templates.js'
+				}
+			},
+
 			// concat js files
 			concat: {
 				options: {
 					separator: ';'
 				},
+				tmp: {
+					files: {
+						'tmp/app.modules.js': ['app/app.module.js','app/**/*Module.js'],
+						'tmp/app.func.js' : ['app/**/*.js', '!app/app.module.js', '!app/**/*.spec.js', '!app/**/*Module.js']
+					}
+				},
 				dist: {
-					src: ['app/app/*.js', '!app/app/*.spec.js'],
-					dest: 'app/dist/<%= pkg.name %>.js'
+					src: ['tmp/app.modules.js', 'tmp/app.func.js', 'tmp/app.templates.js'],
+					dest: 'dist/<%= pkg.name %>.js'
 				}
 			},
 
@@ -55,9 +72,8 @@
 					banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
 				},
 				dist: {
-					files: {
-						'app/dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
-					}
+					src: ['<%= concat.dist.dest %>'],
+					dest: 'dist/<%= pkg.name %>.min.js'
 				}
 			},
 
@@ -67,14 +83,26 @@
 				tasks: ['jshint']
 			},
 
+			clean: {
+				temp: {
+					src: ['tmp']
+				},
+				dist: {
+					src: ['dist','*.zip']
+				}
+			},
+
 			// compress into a ZIP file
 			compress: {
 				dist: {
 					options: {
-						archive: 'app/<%= pkg.name %>-<%= pkg.version %>.zip'
+						archive: '<%= pkg.name %>-<%= pkg.version %>.zip'
 					},
 					files: [
-						{ src: ['app/index.html', 'app/dist/**', 'app/assets/**', 'app/libs/**'], dest: '/' }
+						{ 
+							src: ['index.html', 'favicon.ico', 'LICENSE', 'dist/**', 'assets/**', 'libs/**'],
+							dest: '/'
+						}
 					]
 				}
 			}
@@ -83,8 +111,10 @@
 
 		// load tasks
 		grunt.loadNpmTasks('grunt-contrib-jshint');
+		grunt.loadNpmTasks('grunt-html2js');
 		grunt.loadNpmTasks('grunt-contrib-compress');
 		grunt.loadNpmTasks('grunt-contrib-concat');
+		grunt.loadNpmTasks('grunt-contrib-clean');
 		grunt.loadNpmTasks('grunt-contrib-uglify');
 		grunt.loadNpmTasks('grunt-contrib-compress');
 		grunt.loadNpmTasks('grunt-contrib-watch');
@@ -94,11 +124,11 @@
 		/**
 		  * Register grunt tasks
 		  */
-		grunt.registerTask('test', ['bower', 'jshint', 'karma:unit'] );
+		grunt.registerTask('test', ['jshint', 'karma:unit'] );
 
-		grunt.registerTask('build', ['jshint', 'concat:dist','uglify:dist'] );
+		grunt.registerTask('build', ['bower', 'jshint', 'html2js', 'concat', 'uglify:dist', 'clean:temp', 'compress:dist'] );
 
-		grunt.registerTask('default', ['bower', 'jshint','karma:unit', 'concat:dist', 'uglify:dist', 'compress:dist'] );
+		grunt.registerTask('default', ['bower', 'jshint', 'karma:unit', 'concat', 'uglify:dist', 'clean:temp', 'compress:dist'] );
 
 	};
 

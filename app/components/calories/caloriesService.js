@@ -5,7 +5,7 @@
 
 	function CalService(){
 
-		const RUNNING_CAL_FACTOR = 1.036; // [kcal/kg/km]
+		var RUNNING_CAL_FACTOR = 1.036; // [kcal/kg/km]
 
 		var service = {
 			getResult: getResult
