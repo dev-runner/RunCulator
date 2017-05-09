@@ -30,7 +30,7 @@ h1,h2,h3,h4{
 
 h1.title {
 	font-family: 'Lobster', cursive;
-    font-size: 6em;
+    font-size: 4em;
 	padding: 9px 0;
     text-align: center;
 	text-shadow: 2px 3px 5px rgba(0,0,0,0.23);
@@ -208,4 +208,10 @@ nav {
 }
 .footer-logo:hover{
 	background-position: 0 -24px;
+}
+
+@media (min-width: 768px) {
+	h1.title {
+		font-size: 6em;
+	}
 }
