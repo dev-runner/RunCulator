@@ -1,8 +1,10 @@
 # RunCulator
 
-RunCulator is a simple application containing a set of essential calculators for runners. It is an Open Source project under the MIT license, built completely out of love for running :runner: Please enjoy doing math with burned calories, running paces and speeds!
+RunCulator is a simple application containing a set of essential calculators for runners. It is an Open Source project under the MIT license, built completely out of love for :runner:. Please enjoy doing math with burned calories, running paces and speeds!
 
-The app includes the following calculators:
+** Available calculators
+
+The app currently includes the following calculators:
 
 1. **BMI calculator**
 
