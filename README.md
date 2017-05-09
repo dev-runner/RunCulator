@@ -1,22 +1,27 @@
 # RunCulator
 
-RunCulator is a simple application containing a set of essential calculators for runners. It is an Open Source project under the MIT license, built completely out of love for running. Please enjoy doing math with burned calories, running paces and speeds!
+RunCulator is a simple application containing a set of essential calculators for runners. It is an Open Source project under the MIT license, built completely out of love for running :runner: Please enjoy doing math with burned calories, running paces and speeds!
 
 The app includes the following calculators:
 
-1. BMI calculator
+1. **BMI calculator**
+
    This calculator enables you to calculate your BMI (Body Mass Index) and provides additional tips on running.
 
-2. Running pace calculator
+2. **Running pace calculator**
+
    This calculator will help you determine how fast your pace per kilometer should in order to finish certain distance or race in a desired time.
 
-3. Burned calorie calculator
+3. **Burned calorie calculator**
+
    This calories calculator will show you how many kilocalories (1kcal = 1000 calories) your body uses up while running on the given distance.
 
-4. Split time calculator
+4. **Split time calculator**
+
    This calculator will help you calculate split time based on the running pace and split distance.
 
-5. Training and race paces calculator (VDOT)
+5. **Training and race paces calculator (VDOT)**
+
    This calculator will help you find optimal training paces and estimated race performances on most popular distances. The calculator is based on the famous Jack Daniels' VDOT number.
 
 ## Installation
