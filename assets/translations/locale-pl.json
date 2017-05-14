@@ -2,6 +2,7 @@
    "GENERAL": {
       "HTML_LANG": "pl_PL",
       "DESCRIPTION": "Kalkulatory dla biegaczy",
+      "INTRO": "Zestaw najbardziej przydatnych kalkulatorów dla biegaczy. Oblicz swoje BMI, tempo biegu, spalone kalorie, wyznacz tempa startowe i treningowe.",
       "FORM_ERROR": "Wypełnij wszystkie pola formularza."
    },
    "CONTROLS": {

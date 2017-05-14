@@ -2,6 +2,7 @@
    "GENERAL": {
      "HTML_LANG":"en_EN",
       "DESCRIPTION": "Calculators for runners",
+      "INTRO": "A set of most usable calculators for runners. Calculate your BMI, running pace, calories burned, find optimal training and race paces.",
       "FORM_ERROR": "Please fill in all fields."
    },
    "CONTROLS": {
